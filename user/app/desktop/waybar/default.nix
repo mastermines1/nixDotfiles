@@ -8,7 +8,7 @@ let
     };
     clock = {
       interval = 60;
-      format = "{:%I:%M}";
+      format = "{:%II:%M:%S}";
       max-length = 25;
     };
     wireplumber = {
@@ -58,7 +58,7 @@ in{
         output = "HDMI-A-1";
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "clock" ];
-        modules-right = [ "wireplumber" "network" "disk" "cpu" "memory" "tray"];
+        modules-right = [ "wireplumber" "tray"];
         inherit (moduleConfig) cpu clock wireplumber network disk "hyprland/workspaces";
       };
 
@@ -66,7 +66,7 @@ in{
         layer = "top";
         position = "top";
         output = "DP-2";
-        modules-left = [ "hyprland/workspaces" ];
+        modules-left = [ ];
         modules-center = [ "clock" ];
         modules-right = [ ];
         inherit (moduleConfig) clock "hyprland/workspaces";
