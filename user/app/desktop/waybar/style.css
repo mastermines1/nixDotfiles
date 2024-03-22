@@ -1,0 +1,87 @@
+@import "colours.css";
+
+window#waybar {
+	background: @base00;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#window {
+	margin-top: 6px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: none;
+    color: transparent;
+	background: transparent;
+}
+
+#workspaces,
+#network,
+#memory,
+#clock,
+#cpu,
+#disk,
+#wireplumber,
+#tray {
+	margin-top: 4px;
+	margin-bottom: 4px;
+	margin-left: 8px;
+	margin-right: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 10px;
+	transition: none;
+}
+#workspaces {
+    color: @base00;
+    background: @base0D;
+}
+
+#workspaces button {
+    color: @base00;
+}
+#workspaces button.active {
+	background: transparent
+}
+tooltip {
+  background: @base00;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: @base08;
+}
+#network {
+	color: @base00;
+	background: @base0D;
+}
+
+#clock {
+	color: @base00;
+	background: @base0B;
+}
+
+#memory {
+	color: @base00;
+	background: @base0E;
+}
+#cpu {
+	color: @base00;
+	background: @base0E;
+}
+#disk {
+	color: @base00;
+	background: @base0E;
+}
+#wireplumber {
+	color: @base00;
+	background: @base0C;
+}
+#wireplumber.muted {
+	color: @base00;
+	background: @base08;
+}
+#tray {
+	background: @base0F;
+}
