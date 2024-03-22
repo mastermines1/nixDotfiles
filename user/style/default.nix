@@ -2,7 +2,7 @@
 let
   themePath = ../../themes/${settings.user.theme};
   theme = "${themePath}/${settings.user.theme}.yaml";
-
+wallpaper = "";
   # If the wallpaper is not set in settings, use the theme wallpaper
 #  wallfile = if settings.user.wallpaper == "" then "${themePath}/wallpaper.png" else settings.user.wallpaper;
   # If reThemeWall is true, use image magic to change the colours if the image to use the pallet
