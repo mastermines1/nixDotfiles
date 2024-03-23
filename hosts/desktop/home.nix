@@ -6,7 +6,7 @@
 
   home.username = "${settings.user.username}";
   home.homeDirectory = "/home/${settings.user.username}";
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.11";
 
   imports = [
    ../common-home.nix

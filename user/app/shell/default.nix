@@ -29,7 +29,7 @@ in
     '';
     oh-my-zsh = {
       enable = true;
-      plugins = [ "thefuck" "sudo" "git" ];
+      plugins = [ "sudo" "git" ];
       theme = "bira";
     };
   };
@@ -47,7 +47,6 @@ in
   };
 
   home.packages = with pkgs; [
-    thefuck
     disfetch
     onefetch
     bat
