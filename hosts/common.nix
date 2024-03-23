@@ -5,12 +5,12 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.firewall = {
-    allowedTCPPorts = [ 8384 22000 ];
-    allowedTCPPortRanges = [ { from = 1714; to = 1764;} ];
-    allowedUDPPorts = [ 22000 21027 ];
-    allowedUDPPortRanges = [ { from = 1714; to = 1764;} ];
-  };
+#  networking.firewall = {
+#    allowedTCPPorts = [ 8384 22000 ];
+#    allowedTCPPortRanges = [ { from = 1714; to = 1764;} ];
+#    allowedUDPPorts = [ 22000 21027 ];
+#    allowedUDPPortRanges = [ { from = 1714; to = 1764;} ];
+#  };
 
   # Enable tailscale
   services.tailscale.enable = true;
@@ -40,11 +40,11 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
+ # services.avahi = {
+ #   enable = true;
+ #   nssmdns4 = true;
+ #   openFirewall = true;
+ # };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${settings.user.username} = {

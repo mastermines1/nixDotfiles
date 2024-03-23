@@ -38,10 +38,10 @@
   services.flatpak.enable = true;
   programs.steam.enable = true;
 
-  programs.alvr = {
-    enable = true;
-    openFirewall = true;
-  };
+#  programs.alvr = {
+#    enable = true;
+#    openFirewall = true;
+#  };
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 }
