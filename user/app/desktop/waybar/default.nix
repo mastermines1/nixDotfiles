@@ -1,4 +1,4 @@
-{ config, pkgs, settings, ... }:
+{ config, pkgs, ... }:
 let
   colours = config.lib.stylix.colors;
   moduleConfig = {
@@ -7,8 +7,8 @@ let
       format= "  {}%";
     };
     clock = {
-      interval = 60;
-      format = "{:%II:%M:%S}";
+      interval = 1;
+      format = "{:%H:%M:%S}";
       max-length = 25;
     };
     wireplumber = {
@@ -25,19 +25,12 @@ let
       tooltip-format-wifi = "{essid} ({signalStrength}%) on {ifname}";
       tooltip-format-disconnected = "Disconnected";
     };
-    disk = {
-      format = "󰋊  {percentage_free}%";
-      tooltip-format = "Used {used}/{total}";
-      path = "/";
-      on-click = "baobab";
-      on-click-right = "gnome-disks";
-    };
     "hyprland/workspaces" = {
       format = "{icon}";
       on-click = "activate";
       persistent-workspaces = {
-        HDMI-A-1 = [ 1 2 3 4 5 ];
-        DP-2 = [ 6 7 8 9 10 ];
+        HDMI-A-1 = [ 1 2 3 4 7 9 ];
+        DP-2 = [ 5 6 8 10 ];
       };
       format-icons = {
         active = "";
@@ -57,16 +50,16 @@ in{
         position = "top";
         output = "HDMI-A-1";
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "clock" ];
-        modules-right = [ "wireplumber" "tray"];
-        inherit (moduleConfig) cpu clock wireplumber network disk "hyprland/workspaces";
+        modules-center = [ ];
+        modules-right = [ "wireplumber" "tray" "clock" ];
+        inherit (moduleConfig) wireplumber clock network "hyprland/workspaces";
       };
 
       rightBar = {
         layer = "top";
         position = "top";
         output = "DP-2";
-        modules-left = [ ];
+        modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "clock" ];
         modules-right = [ ];
         inherit (moduleConfig) clock "hyprland/workspaces";
@@ -76,7 +69,6 @@ in{
       * {
         border: none;
         border-radius: 0 0 10px 10px;
-        font-family: ''+settings.user.font+'';
         font-size: 15px;
         min-height: 10px;
       }
