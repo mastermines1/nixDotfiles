@@ -23,7 +23,7 @@ in
     syntaxHighlighting.enable = true;
     shellAliases = myAliases;
     initExtra = ''
-      eval $(thefuck --alias)
+#      eval $(thefuck --alias)
       export PATH=$PATH:/home/milesc/.config/emacs/bin 
       export PATH=$PATH:
     '';
