@@ -45,7 +45,7 @@ let
 
         ${pkgs.imagemagick}/bin/magick convert "${wallfile}" -dither FloydSteinberg -ordered-dither o4x4 -remap palette.png -type truecolor $out
   ''
-    else /. + wallfile;
+    else wallfile;
 in
 {
   home.file.".config/hypr/hyprpaper.conf".text = ''
