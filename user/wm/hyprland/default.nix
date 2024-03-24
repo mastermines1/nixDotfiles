@@ -83,7 +83,7 @@
             border_size=2
 #            col.active_border=0x66ee1111
 #            col.inactive_border=0x66333333
-
+#!/usr/bin/env bash
             apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
         }
         decoration {
@@ -196,8 +196,7 @@
         exec-once=hyprpaper
         exec-once=emacs --daemon
         exec-once=aw-qt
-        exec-one="mkdir /run/mount/HHD"
-        exec-one="mount /dev/sdb2 /run/mount/HHD"
+        exec-once=/home/milesc/.dotfiles/${settings.system.profile}/autostart.sh
 
         # Fix Steam
         windowrulev2 = stayfocused, title:^()$,class:^(steam)$
