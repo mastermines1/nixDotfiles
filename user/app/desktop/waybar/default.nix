@@ -49,9 +49,9 @@ in{
         layer = "top";
         position = "top";
         output = "HDMI-A-1";
-        modules-left = [ "hyprland/workspaces" ];
+        modules-left = [ "hyprland/workspaces" "tray" ];
         modules-center = [ ];
-        modules-right = [ "wireplumber" "tray" "clock" ];
+        modules-right = [ "wireplumber" "clock" ];
         inherit (moduleConfig) wireplumber clock network "hyprland/workspaces";
       };
 
