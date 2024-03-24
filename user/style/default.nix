@@ -5,7 +5,7 @@ let
 
   # If the wallpaper is not set in settings, use the theme wallpaper
   wallfile = if settings.user.wallpaper == "" then "${themePath}/wallpaper.png" else settings.user.wallpaper;
-  # If reThemeWall is true, use image magic to change the colours if the image to use the pallet
+  # If reThemeWall is true, use image magick to change the colours if the image to use the pallet
   wallpaper = if settings.user.reThemeWall then pkgs.runCommand "wallout.png" {} ''
         BASE00="#"$(${pkgs.yq}/bin/yq -r .base00 ${theme})
         BASE01="#"$(${pkgs.yq}/bin/yq -r .base01 ${theme})
@@ -45,7 +45,7 @@ let
 
         ${pkgs.imagemagick}/bin/magick convert "${wallfile}" -dither FloydSteinberg -ordered-dither o4x4 -remap palette.png -type truecolor $out
   ''
-    else wallfile;
+    else ./. + wallfile;
 in
 {
   home.file.".config/hypr/hyprpaper.conf".text = ''
@@ -63,8 +63,8 @@ in
       popups = 12;
       desktop = 12;
     };
-    targets.waybar.enable = true;
-    targets.alacritty.enable = true;
+    targets.waybar.enable = false;
+    targets.alacritty.enable = false;
     fonts = {
       monospace = {
         name = settings.user.font;
