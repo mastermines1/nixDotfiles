@@ -9,7 +9,7 @@
   stylix = {
     image =/home/milesc/Downloads/pexels-eberhard-grossgasteiger-443446.jpg;
     polarity = "dark";
-#    base16Scheme = ../../themes/everforest/everforest.yaml;
+    base16Scheme = ../../themes/everforest/everforest.yaml;
     fonts.sizes = {
       terminal = 12;
       applications = 12;
