@@ -196,7 +196,7 @@
         exec-once=hyprpaper
         exec-once=emacs --daemon
         exec-once=aw-qt
-        exec-once=/home/milesc/.dotfiles/${settings.system.profile}/autostart.sh
+        exec-once=/home/milesc/.dotfiles/hosts/${settings.system.profile}/autostart.sh
 
         # Fix Steam
         windowrulev2 = stayfocused, title:^()$,class:^(steam)$
