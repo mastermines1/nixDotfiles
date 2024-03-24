@@ -7,8 +7,8 @@
   '';
 
   stylix = {
-    image =/home/milesc/Downloads/pexels-eberhard-grossgasteiger-443446.jpg;
-    polarity = "dark";
+    image = /home/milesc/Downloads/Green-Wallpapers-HD-background-3371501184.png;
+#polarity = "dark";
     base16Scheme = ../../themes/everforest/everforest.yaml;
     fonts.sizes = {
       terminal = 12;

@@ -6,13 +6,15 @@
     ../user/app/shell
     ../user/app/shell/scripts/update.nix
   ];
+
   programs.git = {
     enable = true;
     userName = settings.user.gitName;
     userEmail = settings.user.email;
   };
+
   home.packages = with pkgs; [
-    gh
+    gcm
     oh-my-zsh
     alacritty
     firefox
