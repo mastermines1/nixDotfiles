@@ -196,8 +196,8 @@
         exec-once=hyprpaper
         exec-once=emacs --daemon
         exec-once=aw-qt
-        exec-one=mkdir /run/mount/HHD 
-        exec-one=mount /dev/sdb2 /run/mount/HHD
+        exec-one="mkdir /run/mount/HHD"
+        exec-one="mount /dev/sdb2 /run/mount/HHD"
 
         # Fix Steam
         windowrulev2 = stayfocused, title:^()$,class:^(steam)$
