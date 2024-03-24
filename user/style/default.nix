@@ -63,8 +63,8 @@ in
       popups = 12;
       desktop = 12;
     };
-    targets.waybar.enable = false;
-    targets.alacritty.enable = false;
+    targets.waybar.enable = true;
+    targets.alacritty.enable = true;
     fonts = {
       monospace = {
         name = settings.user.font;
