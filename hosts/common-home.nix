@@ -16,8 +16,6 @@
     oh-my-zsh
     alacritty
     firefox
-    syncthing
-    syncthingtray
     usbutils
     pciutils
     python3
