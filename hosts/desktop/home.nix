@@ -31,6 +31,11 @@
   };
 
   home.packages = with pkgs; [
+    
+    gparted
+    baobab
+    gnome.gnome-disk-utility
+
 
     yt-dlp
 
