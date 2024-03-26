@@ -21,8 +21,6 @@
 
   networking = {
     hostName = "nixos"; # Define your hostname.
-    nameservers = [ "100.100.100.100" "100.85.99.93" "1.1.1.1" ];
-    networkmanager.dns = "none";
   };
   security.polkit.enable = true;
 
@@ -43,5 +41,5 @@
 #    openFirewall = true;
 #  };
 
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 }

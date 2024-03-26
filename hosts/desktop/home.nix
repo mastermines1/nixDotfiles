@@ -6,7 +6,7 @@
 
   home.username = "${settings.user.username}";
   home.homeDirectory = "/home/${settings.user.username}";
-  home.stateVersion = "23.11";
+  home.stateVersion = "22.11";
 
   imports = [
    ../common-home.nix
@@ -14,7 +14,7 @@
    ../../user/app/video/mpv
    ../../user/lang/csharp
    ../../user/lang/phython
-   ../../user/lang/phython/phython-packages
+#   ../../user/lang/phython/phython-packages
    ../../user/app/desktop/gammastep
 
    ../../user/wm/${settings.user.wm}
@@ -33,6 +33,8 @@
   home.packages = with pkgs; [
 
     yt-dlp
+
+    spotify
 
     libreoffice-fresh
 
