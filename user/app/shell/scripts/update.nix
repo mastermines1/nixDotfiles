@@ -28,7 +28,7 @@
 
           # Build test system. Will use home manager if on another os, and nixos-rebuild if not.
 
-          sudo '' + (if (settings.system.isNixOS) then ''nixos-rebuild test --flake .#system'' else ''home-manager switch --flake .#user'') + '' | tee update.log
+          sudo nixos-rebuild test --flake .#system
           echo "NixOS Test Built OK!";;
 
         "flake")

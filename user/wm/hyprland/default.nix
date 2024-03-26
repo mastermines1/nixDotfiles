@@ -201,12 +201,12 @@
         exec-once=hyprpaper
         exec-once=emacs --daemon
         exec-once=aw-qt
-        exec-once=mkdir /run/mount/HHD
-        exec-once=mount /dev/sdb2 /run/mount/HHD
         exec-once=webcord
+        exec-once=whatsapp-for-linux
         exec-once=firefox
         exec-once=steam
         exec-once=alacritty
+
 
 #        exec-once=/home/milesc/.dotfiles/hosts/${settings.system.profile}/autostart.sh
 
