@@ -132,7 +132,8 @@
         windowrule=workspace 1, alacritty
         windowrule=monitor 0, steam
         windowrule=workspace 4, steam
-
+	windowrule=monitor 1, spotify
+	windowrule=workspace 6, spotify
 
         windowrule=float,com.usebottles.bottles
 
@@ -140,13 +141,12 @@
         bind=SUPER,RETURN,exec,alacritty
         bind=SUPER,Q,killactive
         bind=SUPER,L,exit
-        bind=SUPER,space,togglefloating
+        bind=SUPERSHIFT,space,togglefloating
         bind=SUPER,D,exec,fuzzel
         bind=SUPER,P,pseudo
         bind=SUPER,F,fullscreen
-        bind=SUPER,N,exec,dolphin
         bind=SUPER,M,exec,firefox
-        #bind=SUPER,E,exec,doom run
+        bind=SUPER,E,exec,"emacsclient -c"
         bind=SUPERSHIFT,E,exec,power-menu
         bind=SUPER,V,exec,mpv $(wl-paste) & notify-send "Opening $(wl-paste) in mpv."
 
