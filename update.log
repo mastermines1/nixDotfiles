@@ -1,31 +1,23 @@
-updating systemd-boot from 254.6 to 255.2
-Copied "/nix/store/3np3qw5y5xarl4hxbhk9vj2d5kmgqsir-systemd-255.2/lib/systemd/boot/efi/systemd-bootx64.efi" to "/boot/EFI/systemd/systemd-bootx64.efi".
-Copied "/nix/store/3np3qw5y5xarl4hxbhk9vj2d5kmgqsir-systemd-255.2/lib/systemd/boot/efi/systemd-bootx64.efi" to "/boot/EFI/BOOT/BOOTX64.EFI".
-stopping the following units: accounts-daemon.service, systemd-udevd-control.socket, systemd-udevd-kernel.socket, systemd-udevd.service
 activating the configuration...
 setting up /etc...
-removing obsolete symlink ‘/etc/mdadm.conf’...
 reloading user units for gdm...
 reloading user units for milesc...
 restarting sysinit-reactivation.target
-reloading the following units: dbus.service
-restarting the following units: home-manager-milesc.service, polkit.service
-starting the following units: accounts-daemon.service, systemd-udevd-control.socket, systemd-udevd-kernel.socket
 warning: the following units failed: NetworkManager-wait-online.service
 
 [0;1;31m×[0m NetworkManager-wait-online.service - Network Manager Wait Online
      Loaded: loaded (]8;;file://nixos/etc/systemd/system/NetworkManager-wait-online.service/etc/systemd/system/NetworkManager-wait-online.service]8;;; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)
-    Drop-In: /nix/store/504lg4kwx9584rf7mg40nssgfh6y4ir6-system-units/NetworkManager-wait-online.service.d
-             └─]8;;file://nixos/nix/store/504lg4kwx9584rf7mg40nssgfh6y4ir6-system-units/NetworkManager-wait-online.service.d/overrides.confoverrides.conf]8;;
-     Active: [0;1;31mfailed[0m (Result: exit-code) since Tue 2024-03-26 17:38:03 GMT; 94ms ago
+    Drop-In: /nix/store/zgvv3wwxwd2n8s5pvcxk8sm99cmj2lnc-system-units/NetworkManager-wait-online.service.d
+             └─]8;;file://nixos/nix/store/zgvv3wwxwd2n8s5pvcxk8sm99cmj2lnc-system-units/NetworkManager-wait-online.service.d/overrides.confoverrides.conf]8;;
+     Active: [0;1;31mfailed[0m (Result: exit-code) since Tue 2024-03-26 17:52:01 GMT; 91ms ago
    Duration: 1min 38.480s
        Docs: ]8;;man:NetworkManager-wait-online.service(8)man:NetworkManager-wait-online.service(8)]8;;
-    Process: 14109 ExecStart=/nix/store/3smcvkky0inrnw2kdsflxh34in0sn2qp-networkmanager-1.46.0/bin/nm-online -s -q [0;1;31m(code=exited, status=1/FAILURE)[0m
-   Main PID: 14109 (code=exited, status=1/FAILURE)
+    Process: 22897 ExecStart=/nix/store/3smcvkky0inrnw2kdsflxh34in0sn2qp-networkmanager-1.46.0/bin/nm-online -s -q [0;1;31m(code=exited, status=1/FAILURE)[0m
+   Main PID: 22897 (code=exited, status=1/FAILURE)
          IP: 0B in, 0B out
-        CPU: 19ms
+        CPU: 14ms
 
-Mar 26 17:37:03 nixos systemd[1]: Starting Network Manager Wait Online...
-Mar 26 17:38:03 nixos systemd[1]: [0;1;39m[0;1;31m[0;1;39mNetworkManager-wait-online.service: Main process exited, code=exited, status=1/FAILURE[0m
-Mar 26 17:38:03 nixos systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mNetworkManager-wait-online.service: Failed with result 'exit-code'.[0m
-Mar 26 17:38:03 nixos systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start Network Manager Wait Online.[0m
+Mar 26 17:51:01 nixos systemd[1]: Starting Network Manager Wait Online...
+Mar 26 17:52:01 nixos systemd[1]: [0;1;39m[0;1;31m[0;1;39mNetworkManager-wait-online.service: Main process exited, code=exited, status=1/FAILURE[0m
+Mar 26 17:52:01 nixos systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mNetworkManager-wait-online.service: Failed with result 'exit-code'.[0m
+Mar 26 17:52:01 nixos systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start Network Manager Wait Online.[0m

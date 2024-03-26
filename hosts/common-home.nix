@@ -13,8 +13,12 @@
     userEmail = settings.user.email;
   };
 
+  programs.gh = {
+    enable = true;
+    gitCredentialHelper.enable = true;
+  };
+
   home.packages = with pkgs; [
-    gh
     alacritty
     firefox
     usbutils
