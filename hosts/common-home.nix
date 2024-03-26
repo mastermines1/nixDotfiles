@@ -14,7 +14,7 @@
   };
 
   home.packages = with pkgs; [
-    git-credential-manager
+    gh
     oh-my-zsh
     alacritty
     firefox
