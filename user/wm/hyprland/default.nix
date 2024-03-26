@@ -206,9 +206,7 @@
         exec-once=firefox
         exec-once=steam
         exec-once=alacritty
-
-
-#        exec-once=/home/milesc/.dotfiles/hosts/${settings.system.profile}/autostart.sh
+        exec-once=spotify
 
         # Fix Steam
         windowrulev2 = stayfocused, title:^()$,class:^(steam)$
