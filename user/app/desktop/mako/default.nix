@@ -6,6 +6,7 @@
     borderSize = 2;
     borderRadius = 8;
     defaultTimeout = 5000;
-#    output = HDMI-A-1;
+    anchor = "bottom-right";
+    output = "HDMI-A-1";
   };
 }
