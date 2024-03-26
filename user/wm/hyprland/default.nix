@@ -128,6 +128,11 @@
         windowrule=workspace 5,whatsapp
         windowrule=monitor 0,firefox
         windowrule=workspace 2,firefox
+        windowrule=monitor 0, alacritty
+        windowrule=workspace 1, alacritty
+        windowrule=monitor 0, steam
+        windowrule=workspace 4, steam
+
 
         windowrule=float,com.usebottles.bottles
 

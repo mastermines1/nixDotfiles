@@ -15,7 +15,7 @@
    ../../user/lang/csharp
    ../../user/lang/phython
    ../../user/lang/phython/phython-packages
-   ../../user/app/desktop/redshift
+   ../../user/app/desktop/gammastep
 
    ../../user/wm/${settings.user.wm}
    ../../user/style   
