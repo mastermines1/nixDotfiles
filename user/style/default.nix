@@ -7,8 +7,8 @@
   '';
 
   stylix = {
-    image = /home/milesc/Downloads/Green-Wallpapers-HD-background-3371501184.png;
-#polarity = "dark";
+    image = /home/milesc/Pictures/wallpapers/4k-amazing-sky-wallpaper-free.jpg;
+#    polarity = "dark";
     base16Scheme = ../../themes/everforest/everforest.yaml;
     fonts.sizes = {
       terminal = 12;
