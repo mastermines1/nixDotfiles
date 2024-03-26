@@ -54,7 +54,6 @@ home.file.".config/doom/packages.el".text = ''
 ;(unpin! t)
 (package! writeroom-mode)
 (package! json-mode)
-(package! tdlr)
-
+(package! tldr )
 '';
 }
