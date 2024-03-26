@@ -15,7 +15,6 @@
 
   home.packages = with pkgs; [
     gh
-    oh-my-zsh
     alacritty
     firefox
     usbutils
