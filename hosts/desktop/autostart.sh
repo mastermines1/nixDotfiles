@@ -8,4 +8,3 @@ webcord
 firefox
 steam
 alacritty
-spotifyd
