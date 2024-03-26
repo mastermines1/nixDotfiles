@@ -40,7 +40,7 @@
           echo "Building config and committing..."
           git add -A
           read -rp "Enter commit message (leave blank for generation number): " msg
-          sudo '' + (if (settings.system.isNixOS) then ''nixos-rebuild switch --flake .#system'' else ''home-manager switch --flake .#user'') + '' | tee update.log
+          sudo nixos-rebuild switch --flake .#system -I ./hosts/${settings.system.profile}
 
           # If the user has entered no comit message, generate it.
           if ! [[ -n "$msg" ]]; then
