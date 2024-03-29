@@ -8,7 +8,7 @@
   '';
 
   stylix = {
-    image = /home/milesc/Pictures/wallpapers/4k-amazing-sky-wallpaper-free.jpg;
+    image = ./wallpaper.jpg;
 #    polarity = "dark";
     base16Scheme = ../../themes/everforest/everforest.yaml;
     fonts.sizes = {

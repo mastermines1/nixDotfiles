@@ -146,7 +146,7 @@
         bind=SUPER,P,pseudo
         bind=SUPER,F,fullscreen
         bind=SUPER,M,exec,firefox
-        bind=SUPER,E,exec,"emacsclient -c"
+        bind=SUPER,E,exec,emacsclient -c
         bind=SUPERSHIFT,E,exec,power-menu
         bind=SUPER,V,exec,mpv $(wl-paste) & notify-send "Opening $(wl-paste) in mpv."
 
