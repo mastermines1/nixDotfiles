@@ -204,7 +204,7 @@
         exec-once=webcord
         exec-once=whatsapp-for-linux
         exec-once=firefox
-        exec-once=steam
+        exec-once=steam -console
         exec-once=alacritty
         exec-once=spotify
 
