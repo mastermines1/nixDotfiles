@@ -9,8 +9,8 @@
 
   stylix = {
     image = ./wallpaper.jpg;
-#    polarity = "dark";
-    base16Scheme = ../../themes/everforest/everforest.yaml;
+    polarity = "dark";
+#    base16Scheme = ../../themes/everforest/everforest.yaml;
     fonts.sizes = {
       terminal = 12;
       applications = 12;
