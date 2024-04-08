@@ -22,6 +22,9 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
 
+  nix.settings.extra-sandbox-paths = [ "/bin/bash=run/current-system/sw/bin/bash" ];
+  nix.settings.sandbox = false;
+
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_GB.UTF-8";
     LC_IDENTIFICATION = "en_GB.UTF-8";
@@ -50,7 +53,7 @@
   users.users.${settings.user.username} = {
     isNormalUser = true;
     description = settings.user.name;
-    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "audio" ];
   };
 
   # Allow unfree packages

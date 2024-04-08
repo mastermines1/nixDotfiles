@@ -120,20 +120,18 @@
         }
 
         # Window rules
-        windowrule=monitor 1,discord
-        windowrule=workspace 5,discord
-        windowrule=monitor 1,webcord
-        windowrule=workspace 5,webcord
-        windowrule=monitor 1,whatsapp
-        windowrule=workspace 5,whatsapp
-        windowrule=monitor 0,firefox
-        windowrule=workspace 2,firefox
-        windowrule=monitor 0, alacritty
-        windowrule=workspace 1, alacritty
+        windowrule=monitor 1, WebCord
+        windowrule=workspace 5, WebCord
+        windowrule=monitor 1, whatsapp
+        windowrule=workspace 5, whatsapp
+        windowrule=monitor 0, firefox
+        windowrule=workspace 2, firefox
+        windowrule=monitor 0, Alacritty
+        windowrule=workspace 1, Alacritty
         windowrule=monitor 0, steam
         windowrule=workspace 4, steam
-	windowrule=monitor 1, spotify
-	windowrule=workspace 6, spotify
+        windowrule=monitor 1, Spotify
+        windowrule=workspace 6, Spotify
 
         windowrule=float,com.usebottles.bottles
 
@@ -148,13 +146,10 @@
         bind=SUPER,M,exec,firefox
         bind=SUPER,E,exec,emacsclient -c
         bind=SUPERSHIFT,E,exec,power-menu
-        bind=SUPER,V,exec,mpv $(wl-paste) & notify-send "Opening $(wl-paste) in mpv."
 
         # Screenshots
-        bind=,Print,exec,grimblast --notify --cursor copy active
-        bind=SHIFT,Print,exec,grimblast --notify --cursor copysave active
-        bind=SUPER,S,exec,grimblast --notify --cursor copy area
-        bind=SUPERSHIFT,S,exec,grimblast --notify --cursor copysave area
+        bind=,Print,exec,grimblast --notify --cursor copy area
+        bind=SHIFT,Print,exec,grimblast --notify --cursor copysave area
 
         bindm=SUPER,mouse:272,movewindow
         bindm=SUPER,mouse:273,resizewindow
@@ -191,11 +186,10 @@
         bind=SUPERSHIFT,9,movetoworkspacesilent,9
         bind=SUPERSHIFT,0,movetoworkspacesilent,10
 
-        bind=SUPER,mouse_down,workspace,e+1
-        bind=SUPER,mouse_up,workspace,e-1
         bind=SUPER,f4,exec,hyprctl kill
 
         #Autostart
+        exec-once=ln -s /run/current-system/sw/bin/bash /bin/bash
         exec-once=waybar
         exec-once=mako
         exec-once=hyprpaper
@@ -211,6 +205,7 @@
         # Fix Steam
         windowrulev2 = stayfocused, title:^()$,class:^(steam)$
         windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
+        windowrulev2 = noinitialfocus, title:^()$.class:^(steam)$
 
         # Fix Reaper
         windowrule=noanim,^(REAPER)$

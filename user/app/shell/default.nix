@@ -60,7 +60,7 @@ in
     fzf
     tree
     feh
-    plocate
+    jq
   ];
 
   programs.direnv.enable = true;
