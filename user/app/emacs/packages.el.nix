@@ -55,5 +55,6 @@ home.file.".config/doom/packages.el".text = ''
 (package! writeroom-mode)
 (package! json-mode)
 (package! tldr )
+(package! omnisharp)
 '';
 }

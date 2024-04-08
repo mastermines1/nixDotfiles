@@ -25,6 +25,24 @@ let
       tooltip-format-wifi = "{essid} ({signalStrength}%) on {ifname}";
       tooltip-format-disconnected = "Disconnected";
     };
+
+    "custom/music" = {
+      format = "{icon}{}";
+      format-icons = {
+        Paused = "|| ";
+        Stopped = "&#x202d;ﭥ ";
+      };
+      escape = true;
+      tooltip = true;
+      exec = "~/.dotfiles/user/app/desktop/waybar/scripts/cavaw -b 16";
+      return-type = "json";
+      on-click = "playerctl play-pause";
+      on-scroll-up = "playerctl previous";
+      on-scroll-down = "playerctl next";
+      #on-click-right = "g4music";
+      max-length = 35;
+    };
+
     "hyprland/workspaces" = {
       format = "{icon}";
       on-click = "activate";
@@ -50,9 +68,9 @@ in{
         position = "top";
         output = "HDMI-A-1";
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ ];
+        modules-center = [ "custom/music" ];
         modules-right = [ "wireplumber" "clock" ];
-        inherit (moduleConfig) wireplumber clock network "hyprland/workspaces";
+        inherit (moduleConfig) wireplumber clock network "hyprland/workspaces" "custom/music";
       };
 
       rightBar = {

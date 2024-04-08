@@ -5,7 +5,7 @@ let
 in
 {
   stylix = {
-    base16Scheme = theme;
+    #base16Scheme = theme;
     polarity = "dark";
   };
   qt.platformTheme = "qt5ct";

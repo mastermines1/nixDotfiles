@@ -1,4 +1,4 @@
-{lib, pkgs, settings, ... }:
+{lib, pkgs, settings, config, ... }:
 
 {
   # Let Home Manager install and manage itself.
@@ -21,6 +21,14 @@
    ../../user/style   
   ];
 
+  home.file.".config/hypr/hyprpaper.conf".text = ''
+    preload = ${config.stylix.image}
+    wallpaper = HDMI-A-1,${config.stylix.image}
+    wallpaper = DP-2,${config.stylix.image}
+    splash = false
+  '';
+
+
   programs.alacritty.enable = true;
   services = {
     syncthing.enable = true;
@@ -35,14 +43,26 @@
     gparted
     baobab
 
+    cava
+    playerctl
+
     yt-dlp
 
     spotify
 
     libreoffice-fresh
+    vscode
+    gnumake
 
     webcord-vencord
     whatsapp-for-linux
+
+    dwarfs
+    fuse-overlayfs
+    bubblewrap
+    wine
+    qbittorrent
+    mullvad-vpn
 
   ];
 }
