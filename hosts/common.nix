@@ -74,6 +74,10 @@
     reaper
   ];
 
+
+
+    boot.supportedFilesystems = [ "ntfs" ];
+
   programs.adb.enable = true;
 
   services.gnome.gnome-keyring.enable = true;  
