@@ -128,8 +128,8 @@
         windowrule=workspace 2, firefox
         windowrule=monitor 0, Alacritty
         windowrule=workspace 1, Alacritty
-        windowrule=monitor 0, steam
-        windowrule=workspace 4, steam
+        windowrule=monitor 0, title: Steam
+        windowrule=workspace 4, title: Steam
         windowrule=monitor 1, Spotify
         windowrule=workspace 6, Spotify
 
@@ -205,7 +205,7 @@
         # Fix Steam
         windowrulev2 = stayfocused, title:^()$,class:^(steam)$
         windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
-        windowrulev2 = noinitialfocus, title:^()$.class:^(steam)$
+        #windowrulev2 = noinitialfocus, title:^()$.class:^(steam)$
 
         # Fix Reaper
         windowrule=noanim,^(REAPER)$
