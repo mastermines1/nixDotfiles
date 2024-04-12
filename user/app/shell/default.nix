@@ -3,7 +3,7 @@ let
   # My shell aliases
   myAliases = {
     cat = "bat";
-    htop = "btm";
+    htop = "btop";
     fd = "fd -Lu";
     gitfetch = "onefetch";
     neofetch = "disfetch";
@@ -61,6 +61,7 @@ in
     tree
     feh
     jq
+    btop
   ];
 
   programs.direnv.enable = true;

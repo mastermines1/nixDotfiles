@@ -16,6 +16,7 @@
    ../../user/lang/phython
 #   ../../user/lang/phython/phython-packages
    ../../user/app/desktop/gammastep
+   ../../user/app/programming/vscode
 
    ../../user/wm/${settings.user.wm}
    ../../user/style   
@@ -50,8 +51,9 @@
 
     spotify
 
+    legendary-gl
+
     libreoffice-fresh
-    vscode
     gnumake
 
     webcord-vencord
