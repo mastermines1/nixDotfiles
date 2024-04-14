@@ -44,6 +44,8 @@
     gparted
     baobab
 
+    cbonsai
+
     cava
     playerctl
 
