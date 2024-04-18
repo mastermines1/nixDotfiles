@@ -128,8 +128,9 @@
         windowrule=workspace 2, firefox
         windowrule=monitor 0, Alacritty
         windowrule=workspace 1, Alacritty
-        windowrule=monitor 0, title: Steam
-        windowrule=workspace 4, title: Steam
+        windowrule=monitor 0, title: ^(Steam)(.*)$
+        windowrule=workspace 4, title: ^(Steam)(.*)$
+        windowrule=monitor 0, title: ^(notificationtoasts_7_desktop)(.*)$
         windowrule=monitor 1, Spotify
         windowrule=workspace 6, Spotify
 

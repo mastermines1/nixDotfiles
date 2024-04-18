@@ -61,6 +61,8 @@
     webcord-vencord
     whatsapp-for-linux
 
+    avalonia-ilspy
+
     dwarfs
     fuse-overlayfs
     bubblewrap
