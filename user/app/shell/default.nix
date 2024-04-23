@@ -8,11 +8,8 @@ let
     gitfetch = "onefetch";
     neofetch = "disfetch";
     ls = "eza";
-    #update = "sudo nixos-rebuild switch --flake ~/.dotfiles#system";
-    # update-test = "sudo nixos-rebuild test --flake ~/nixos/flake.nix#system";
-    # update-flake = "nix flake update ~/nixos && sudo nixos-rebuild switch --flake ~/nixos/flake.nix#system";
-    # update-list = "nixos-rebuild dry-build --flake ~/nixos/flake.nix#system";
     cd = "z";
+    df = "df -h";
   };
 in
 {
@@ -23,9 +20,7 @@ in
     syntaxHighlighting.enable = true;
     shellAliases = myAliases;
     initExtra = ''
-#      eval $(thefuck --alias)
-      export PATH=$PATH:/home/milesc/.config/emacs/bin 
-      export PATH=$PATH:
+      export PATH=$PATH:/home/milesc/.config/emacs/bin
     '';
     oh-my-zsh = {
       enable = true;
@@ -62,10 +57,11 @@ in
     feh
     jq
     btop
+    nh
+
   ];
 
   programs.direnv.enable = true;
   programs.direnv.enableZshIntegration = true;
   programs.direnv.nix-direnv.enable = true;
 }
-

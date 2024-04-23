@@ -199,7 +199,7 @@
         exec-once=webcord
         exec-once=whatsapp-for-linux
         exec-once=firefox
-        exec-once=steam -console
+        exec-once=[workspace 4 silent]  steam -console
         exec-once=alacritty
         exec-once=spotify
 
