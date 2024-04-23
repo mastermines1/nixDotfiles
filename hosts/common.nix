@@ -1,5 +1,10 @@
 { config, pkgs, inputs, settings, ... }:
 {
+
+  imports = [
+    ../system/polkit
+  ];
+
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -95,4 +100,5 @@
   environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
+
 }

@@ -25,7 +25,7 @@
     in{
       # If the system is running nixos, use home manager as a nix module.
       nixosConfigurations = {
-        system = lib.nixosSystem {
+         system = lib.nixosSystem {
           system = settings.system.system;
           modules = [
             nixConf

@@ -11,5 +11,5 @@
       wayland = true;
     };
   };
-  security.polkit.enable = true;
+  #security.polkit.enable = true;
 }
