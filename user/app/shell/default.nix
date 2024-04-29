@@ -21,6 +21,7 @@ in
     shellAliases = myAliases;
     initExtra = ''
       export PATH=$PATH:/home/milesc/.config/emacs/bin
+      cbonsai -p
     '';
     oh-my-zsh = {
       enable = true;

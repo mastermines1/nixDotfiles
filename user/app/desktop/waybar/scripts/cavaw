@@ -82,7 +82,12 @@ playerctl_waybar_pipe="/tmp/playerctl_waybar.fifo"
 clean_create_pipe $playerctl_waybar_pipe
 
 # playerctl output into playerctl_waybar_pipe
-playerctl -a metadata --format '{"text": "{{artist}} - {{title}}", "tooltip": "{{playerName}} : {{markup_escape(artist)}} - {{markup_escape(title)}}", "alt": "{{status}}", "class": "{{status}}"}' -F >$playerctl_waybar_pipe &
+playerctl --player=spotify metadata --format '{"text": "{{artist}} - {{title}}", "tooltip": "{{playerName}} : {{markup_escape(artist)}} - {{markup_escape(title)}}", "alt": "{{status}}", "class": "{{status}}"}' -F >$playerctl_waybar_pipe &
+
+#spotifycli --status #somehow inject into $line at wanted locations OR use playerctl to find when song ends (could be jank) OR use playerctl to detect if current player is spotify (probbaly best idea)
+
+
+
 
 # Read the playerctl o/p via its fifo pipe
 while read -r line; do
