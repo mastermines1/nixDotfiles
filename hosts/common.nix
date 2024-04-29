@@ -68,6 +68,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     efibootmgr
+    gnome.gnome-disk-utility
     zsh
     home-manager
     git

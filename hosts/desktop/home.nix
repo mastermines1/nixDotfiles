@@ -29,7 +29,6 @@
     splash = false
   '';
 
-
   programs.alacritty.enable = true;
   services = {
     syncthing.enable = true;
@@ -52,6 +51,7 @@
     yt-dlp
 
     spotify
+    spotify-cli-linux
 
     legendary-gl
 

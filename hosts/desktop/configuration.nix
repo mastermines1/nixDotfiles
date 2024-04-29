@@ -24,13 +24,17 @@
    fsType = "ext4";
  };
 
+ fileSystems."/run/mount/HHD_ntfs" = {
+   device = "/dev/disk/by-uuid/783A0F5D3A0F17B0";
+   fsType = "ntfs-3g";
+ };
 
   services.mullvad-vpn.enable = true;
 
   networking = {
     hostName = "nixos"; # Define your hostname.
   };
-  #security.polkit.enable = true;
+  security.polkit.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {

@@ -2,14 +2,12 @@
 let
   colours = config.lib.stylix.colors;
   moduleConfig = {
-    cpu = {
-      interval = 15;
-      format= "  {}%";
-    };
     clock = {
       interval = 1;
       format = "{:%H:%M:%S}";
       max-length = 25;
+      tooltip = true;
+      tooltip-format = "{:%d-%m-%Y}";
     };
     wireplumber = {
       scroll-step = 5;
@@ -36,9 +34,9 @@ let
       tooltip = true;
       exec = "~/.dotfiles/user/app/desktop/waybar/scripts/cavaw -b 16";
       return-type = "json";
-      on-click = "playerctl play-pause";
-      on-scroll-up = "playerctl previous";
-      on-scroll-down = "playerctl next";
+      on-click = "spotifycli --playpause";
+      on-scroll-up = "spotifycli --prev";
+      on-scroll-down = "spotifycli --next";
       #on-click-right = "g4music";
       max-length = 35;
     };
