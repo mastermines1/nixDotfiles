@@ -21,7 +21,7 @@ in
     shellAliases = myAliases;
     initExtra = ''
       export PATH=$PATH:/home/milesc/.config/emacs/bin
-      cbonsai -p
+      cbonsai -p --message=$(date +%H:%M)
     '';
     oh-my-zsh = {
       enable = true;
