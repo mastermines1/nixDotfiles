@@ -27,7 +27,7 @@ let
     "custom/music" = {
       format = "{icon}{}";
       format-icons = {
-        Paused = "|| ";
+        Paused = "";
         Stopped = "&#x202d;ﭥ ";
       };
       escape = true;

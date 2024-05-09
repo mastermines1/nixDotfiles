@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   programs.vscode = {
+    package = vscode.fhs
     enable = true;
     extensions = with pkgs.vscode-extensions; [
       marp-team.marp-vscode
