@@ -1,0 +1,133 @@
+{ pkgs, settings, ... }:
+let
+  # My shell aliases
+  myAliases = {
+    cat = "bat";
+    htop = "btop";
+    fd = "fd -Lu";
+    gitfetch = "onefetch";
+    neofetch = "disfetch";
+    ls = "eza";
+    cd = "z";
+    df = "df -h";
+    c = "clear";
+  };
+in
+{
+
+
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable = true;
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
+    autocd = true;
+    shellAliases = myAliases;
+    history = {
+      size = 5000;
+      save = 5000;
+      path = "~/.zsh_history";
+      share = true;
+      ignoreDups = true;
+      ignoreSpace = true;
+      ignoreAllDups = true;
+    };
+    initExtra = ''
+      # Set the directory we want to store zinit and plugins
+      ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
+
+      # Download Zinit, if it's not there yet
+      if [ ! -d "$ZINIT_HOME" ]; then
+        mkdir -p "$(dirname $ZINIT_HOME)"
+        git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+      fi
+
+      # Source/Load zinit
+      source "''${ZINIT_HOME}/zinit.zsh"
+
+      # Add in Powerlevel10k
+      zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+      # Add in zsh plugins
+      zinit light Aloxaf/fzf-tab
+
+      # Add in snippets
+      zinit snippet OMZP::git
+      zinit snippet OMZP::sudo
+      zinit snippet OMZP::archlinux
+      zinit snippet OMZP::aws
+      zinit snippet OMZP::kubectl
+      zinit snippet OMZP::kubectx
+      zinit snippet OMZP::command-not-found
+
+      # Load completions
+      autoload -Uz compinit && compinit
+
+      zinit cdreplay -q
+
+      #keybinds
+      bindkey -e
+      bindkey '^[OA' history-search-backwards
+      bindkey '^[OB' history-search-forwards
+      bindkey '^p' history-search-backwards
+      bindkey '^n' history-search-forwards
+
+      # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+      # Completion styling
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+      zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+      zstyle ':completion:*' menu no
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+      zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+      # Shell integrations
+      eval "$(fzf --zsh)"
+      eval "$(zoxide init --cmd cd zsh)"
+
+      export PATH=$PATH:/home/milesc/.config/emacs/bin
+      cbonsai -p --message=$(date +%H:%M)
+    '';
+  };
+
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    shellAliases = myAliases;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
+
+  programs.alacritty = {
+    enable = true;
+  };
+
+  home.packages = with pkgs; [
+    disfetch
+    onefetch
+    bat
+    bottom
+    fd
+    bc
+    direnv
+    nix-direnv
+    tldr
+    eza
+    fzf
+    tree
+    feh
+    jq
+    btop
+    nh
+    ffmpeg
+  ];
+
+  programs.direnv.enable = true;
+  programs.direnv.enableZshIntegration = true;
+  programs.direnv.nix-direnv.enable = true;
+}

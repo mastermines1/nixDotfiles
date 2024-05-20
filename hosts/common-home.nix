@@ -5,6 +5,7 @@
   [
     ../user/app/shell
     ../user/app/shell/scripts/update.nix
+    ../user/app/alacritty
   ];
 
   programs.git = {
@@ -19,7 +20,6 @@
   };
 
   home.packages = with pkgs; [
-    alacritty
     firefox
     usbutils
     pciutils
