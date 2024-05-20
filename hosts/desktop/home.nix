@@ -29,14 +29,7 @@
     splash = false
   '';
 
-  programs.alacritty.enable = true;
-  services = {
-    syncthing.enable = true;
-    kdeconnect = {
-      enable = true;
-      indicator = true;
-    };
-  };
+
 
   home.packages = with pkgs; [
     

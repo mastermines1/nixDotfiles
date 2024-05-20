@@ -1,4 +1,4 @@
-{ pkgs, lib, settings, ... }:
+{ pkgs, settings, ... }:
 let
   # My shell aliases
   myAliases = {
@@ -41,7 +41,6 @@ in
     enableBashIntegration = true;
     enableZshIntegration = true;
   };
-
 
   home.packages = with pkgs; [
     disfetch

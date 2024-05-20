@@ -80,9 +80,7 @@
     reaper
   ];
 
-
-
-    boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   programs.adb.enable = true;
 
