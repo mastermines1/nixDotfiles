@@ -11,9 +11,6 @@
     username = "milesc"; #The name of the user account.
     email = "milespatrickcampbell@gmail.com"; # Your email (used for git).
     gitName = "mastermines1";
-    theme = "everforest"; # The name of the theme in the ./themes folder.
-    wallpaper = "/home/milesc/.dotfiles/themes/everforest/wallpaper.png";
-    reThemeWall = false; # Re-theme the colours of the paper with imagemagic
     wm = "hyprland";
     font = "Iosevka Aile";
     fontPkg = "iosevka";

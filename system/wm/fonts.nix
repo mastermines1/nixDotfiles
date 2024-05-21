@@ -10,5 +10,6 @@
     font-awesome
     ubuntu_font_family
     terminus_font
+    meslo-lgs-nf
   ];
 }
