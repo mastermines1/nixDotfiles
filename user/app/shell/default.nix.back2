@@ -86,7 +86,7 @@ in
       eval "$(fzf --zsh)"
       eval "$(zoxide init --cmd cd zsh)"
 
-      export PATH=$PATH:/home/milesc/.config/emacs/bin
+      export PATH=$PATH:/home/''+settings.user.username+''/.config/emacs/bin
       cbonsai -p --message=$(date +%H:%M)
     '';
   };

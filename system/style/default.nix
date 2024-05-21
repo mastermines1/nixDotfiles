@@ -11,6 +11,5 @@ in
   qt.platformTheme = "qt5ct";
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt5ct";
-    FLAKE = "/home/milesc/.dotfiles";
   };
 }
