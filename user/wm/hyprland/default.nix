@@ -3,38 +3,17 @@
   imports = [ 
     ../wayland
     ../../app/desktop/waybar
+    ./scripts/power-menu.nix
+    ./scripts/screenshot-menu.nix
   ];
 
   home.packages = with pkgs; [
     xdg-desktop-portal-hyprland
     wl-clipboard
     hyprland-protocols
-    wl-clipboard
     grim
     grimblast
     slurp
-    (pkgs.writeScriptBin "power-menu" ''
-        #!/usr/bin/env bash
-
-        option0="󰏥 Suspend"
-        option1="󰐥 Shutdown"
-        option2="󰜉 Reboot"
-        option3=" Windows"
-
-        options="$option0\n$option1\n$option2\n$option3"
-
-        chosen="$(echo -e "$options" | fuzzel --lines 4 --dmenu)"
-        case $chosen in
-            $option0)
-                systemctl suspend;;
-            $option1)
-                systemctl poweroff;;
-            $option2)
-                systemctl reboot;;
-            $option3)
-                systemctl reboot --boot-loader-entry=auto-windows;;
-        esac
-    '')
   ];
 
   # Hyprland Config
@@ -81,9 +60,6 @@
             gaps_in=3
             gaps_out=8
             border_size=2
-#            col.active_border=0x66ee1111
-#            col.inactive_border=0x66333333
-#!/usr/bin/env bash
             apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
         }
         decoration {
@@ -117,6 +93,7 @@
         misc {
           enable_swallow = true
           swallow_regex = ^(alacritty)$
+            disable_hyprland_logo=true
         }
 
         # Window rules
@@ -128,18 +105,25 @@
         windowrule=workspace 2, firefox
         windowrule=monitor 0, Alacritty
         windowrule=workspace 1, Alacritty
-        windowrule=monitor 0, title: ^(Steam)(.*)$
-        windowrule=workspace 4, title: ^(Steam)(.*)$
-        windowrule=monitor 0, title: ^(notificationtoasts_7_desktop)(.*)$
+        windowrule=monitor 0, title:^(Steam)$
+        windowrule=workspace 4, title:^(Steam)$
+        windowrule=monitor 0, title:^(Sign in to Steam)$
+        windowrule=workspace 4, title:^(Sign in to Steam)$
+        windowrule=monitor 0, title:^(notificationtoasts_7_desktop)(.*)$
         windowrule=monitor 1, Spotify
         windowrule=workspace 6, Spotify
+
+
+        #Disable annoying focus stealing.
+        windowrulev2 = workspace 4 silent, title:^(Steam)$
+        windowrulev2 = workspace 4 silent, title:^(Sign in to Steam)$
 
         windowrule=float,com.usebottles.bottles
 
         # Binds
         bind=SUPER,RETURN,exec,alacritty
         bind=SUPER,Q,killactive
-        bind=SUPER,L,exit
+        bind=SUPER,L,exec,spotifycli --pause && swaylock-fancy
         bind=SUPERSHIFT,space,togglefloating
         bind=SUPER,D,exec,fuzzel
         bind=SUPER,P,pseudo
@@ -149,8 +133,8 @@
         bind=SUPERSHIFT,E,exec,power-menu
 
         # Screenshots
-        bind=,Print,exec,grimblast --notify --cursor copy area
-        bind=SHIFT,Print,exec,grimblast --notify --cursor copysave area
+        bind=,Print,exec,screenshot-menu
+        #bind=SHIFT,Print,exec,grimblast --notify --cursor copysave area
 
         bindm=SUPER,mouse:272,movewindow
         bindm=SUPER,mouse:273,resizewindow
@@ -196,17 +180,16 @@
         exec-once=hyprpaper
         exec-once=emacs --daemon
         exec-once=aw-qt
-        exec-once=webcord
-        exec-once=whatsapp-for-linux
-        exec-once=firefox
-        exec-once=[workspace 4 silent]  steam -console
-        exec-once=alacritty
-        exec-once=spotify
+        exec-once=[workspace 5 silent] webcord
+        exec-once=[workspace 5 silent] whatsapp-for-linux
+        exec-once=[workspace 2 silent] firefox
+        exec-once=[workspace 4 silent] steam -console
+        exec-once=[workspace 1 silent] alacritty
+        exec-once=[workspace 6 silent] spotify
 
         # Fix Steam
         windowrulev2 = stayfocused, title:^()$,class:^(steam)$
         windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
-        #windowrulev2 = noinitialfocus, title:^()$.class:^(steam)$
 
         # Fix Reaper
         windowrule=noanim,^(REAPER)$

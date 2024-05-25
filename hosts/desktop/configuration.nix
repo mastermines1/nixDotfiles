@@ -35,6 +35,7 @@
     hostName = "nixos"; # Define your hostname.
   };
   security.polkit.enable = true;
+  security.pam.services.swaylock = {};
 
   # Configure keymap in X11
   services.xserver.xkb = {

@@ -91,7 +91,7 @@ mouse = "Middle"
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
-program = "/etc/profiles/per-user/''+settings.user.username+'''/bin/zsh"
+program = "/etc/profiles/per-user/''+settings.user.username+''/bin/zsh"
 
 [window]
 decorations = "full"
