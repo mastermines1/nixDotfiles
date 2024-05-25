@@ -5,6 +5,7 @@
     ../../app/desktop/waybar
     ./scripts/power-menu.nix
     ./scripts/screenshot-menu.nix
+    ./scripts/swaylock-fancy
   ];
 
   home.packages = with pkgs; [
@@ -123,7 +124,7 @@
         # Binds
         bind=SUPER,RETURN,exec,alacritty
         bind=SUPER,Q,killactive
-        bind=SUPER,L,exec,spotifycli --pause && swaylock-fancy
+        bind=SUPER,L,exec,swaylock-fancy
         bind=SUPERSHIFT,space,togglefloating
         bind=SUPER,D,exec,fuzzel
         bind=SUPER,P,pseudo

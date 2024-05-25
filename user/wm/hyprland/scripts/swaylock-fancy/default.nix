@@ -1,4 +1,4 @@
-{ config, setting, lib, pkgs, ... }:
+{ config, settings, lib, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -10,7 +10,7 @@
 # Dependencies: imagemagick, grim (optional)
 set -o errexit -o noclobber -o nounset
 
-PREFIX=''+settings.system.dotDir +''"/user/wm/hyprland/scripts/swaylock-fancy"
+PREFIX="'' +settings.system.dotDir +''/user/wm/hyprland/scripts/swaylock-fancy"
 
 hue=(-level "0%,100%,0.6")
 effect=(-filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize 500.5%)
@@ -99,7 +99,7 @@ case "${LANG:-}" in
     * ) text="Type password to unlock" ;; # Default to English
 esac
 
-while [[ $# > 0 ]] ; do
+while [[ $# -gt 0 ]] ; do
     case "$1" in
         -h|--help)
             printf "Usage: %s [options]\n\n%s\n\n" "''${0##*/}" "$options"; exit 1 ;;
@@ -168,6 +168,15 @@ done
 # the desktop) before locking.
 ''${desktop} ''${desktop:+-k on}
 
+
+
+#Pause media before locking
+PLAYING=false
+if [ "$(playerctl status)" = "Playing" ]; then
+   PLAYING=true
+   playerctl pause
+fi
+
 # try to use swaylock with prepared parameters
 if ! "''${swaylock_cmd[@]}" "''${param[@]}" >/dev/null 2>&1; then
     # We have failed, lets get back to stock one
@@ -177,6 +186,12 @@ fi
 # As above, if we were passed -d/--desktop, we'll attempt to restore all windows
 # after unlocking.
 ''${desktop} ''${desktop:+-k off}
+
+#Unpause media if it was origionally playing
+if [ ''${PLAYING} = true ]; then
+   playerctl play
+fi
+
     ''))
   ];
 }

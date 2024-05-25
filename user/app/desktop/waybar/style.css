@@ -1,11 +1,19 @@
 @import "colours.css";
 
 window#waybar {
-	background: @base00;
+    background: transparent;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
 }
 
 window#waybar.hidden {
 	opacity: 0.2;
+}
+
+
+#waybar.empty #window {
+  background-color: transparent;
 }
 
 #window {
