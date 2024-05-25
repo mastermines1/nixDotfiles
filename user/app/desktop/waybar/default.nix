@@ -32,7 +32,7 @@ let
       };
       escape = true;
       tooltip = true;
-      exec = "~/.dotfiles/user/app/desktop/waybar/scripts/cavaw -b 16";
+      exec = "cavaw -b 16";
       return-type = "json";
       on-click = "spotifycli --playpause";
       on-scroll-up = "spotifycli --prev";
@@ -57,6 +57,11 @@ let
   };
 
 in{
+
+  imports = [
+    ./scripts/cavaw.nix
+  ];
+
   programs.waybar = {
     enable = true;
     settings = {

@@ -1,4 +1,9 @@
-#!/bin/bash
+{ config, lib, pkgs, ... }:
+
+{
+  home.packages = with pkgs; [
+    (pkgs.writeScriptBin "cavaw" (''
+      #!/bin/bash
 
 # Nuke all internal spawns when script dies
 trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM
@@ -9,9 +14,9 @@ EQUILIZER=1;
 
 # Get script options
 while getopts 'b:f:m:eh' flag; do
-    case "${flag}" in
-        b) BARS="${OPTARG}" ;;
-        f) FRAMERATE="${OPTARG}" ;;
+    case "''${flag}" in
+        b) BARS="''${OPTARG}" ;;
+        f) FRAMERATE="''${OPTARG}" ;;
         e) EQUILIZER=0 ;;
         h)
             echo "caway usage: caway [ options ... ]"
@@ -31,14 +36,14 @@ dict="s/;//g;"
 
 # creating "dictionary" to replace char with bar + thin space " "
 i=0
-while [ $i -lt ${#bar} ]
+while [ $i -lt ''${#bar} ]
 do
-    dict="${dict}s/$i/${bar:$i:1} /g;"
+    dict="''${dict}s/$i/''${bar:$i:1} /g;"
     i=$((i=i+1))
 done
 
 # Remove last extra thin space
-dict="${dict}s/.$//;"
+dict="''${dict}s/.$//;"
 
 clean_create_pipe() {
     if [ -p $1 ]; then
@@ -119,3 +124,7 @@ while read -r line; do
         echo $! >> $cava_waybar_pid
     fi
 done < $playerctl_waybar_pipe
+
+    ''))
+  ];
+}
