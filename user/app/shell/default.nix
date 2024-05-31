@@ -11,6 +11,7 @@ let
     cd = "z";
     df = "df -h";
     c = "clear";
+    q = "exit";
   };
 in
 {
@@ -94,6 +95,8 @@ in
 
     # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
     [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+    zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
     export PATH=$PATH:/home/''+settings.user.username+''/.config/emacs/bin
 

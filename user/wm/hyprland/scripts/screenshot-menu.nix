@@ -19,9 +19,9 @@
             $option1)
                 grimblast --notify --cursor copysave area;;
             $option2)
-                grimblast copy output;;
+                sleep 0.1 && grimblast --notify copy output;;
             $option3)
-                grimblast copy screen;;
+                sleep 0.1 && grimblast --notify copy screen;;
         esac
     ''))
   ];

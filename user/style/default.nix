@@ -17,6 +17,11 @@
     };
     polarity = "dark";
 
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+    };
+
     fonts = {
       serif = {
         name = "Cantarell";

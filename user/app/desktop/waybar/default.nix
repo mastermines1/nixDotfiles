@@ -59,7 +59,7 @@ let
 in{
 
   imports = [
-    ./scripts/cavaw.nix
+    ./scripts/cavay.nix
   ];
 
   programs.waybar = {
