@@ -97,6 +97,9 @@
             disable_hyprland_logo=true
         }
 
+        windowrulev2 = float,class:(floating)
+        windowrule=float,com.usebottles.bottles
+
         # Window rules
         windowrule=monitor 1, WebCord
         windowrule=workspace 5, WebCord
@@ -104,34 +107,35 @@
         windowrule=workspace 5, whatsapp
         windowrule=monitor 0, firefox
         windowrule=workspace 2, firefox
+        windowrule=size 100 100, Alacritty
         windowrule=monitor 0, Alacritty
         windowrule=workspace 1, Alacritty
-        windowrule=monitor 0, title:^(Steam)$
-        windowrule=workspace 4, title:^(Steam)$
-        windowrule=monitor 0, title:^(Sign in to Steam)$
-        windowrule=workspace 4, title:^(Sign in to Steam)$
-        windowrule=monitor 0, title:^(notificationtoasts_7_desktop)(.*)$
         windowrule=monitor 1, Spotify
         windowrule=workspace 6, Spotify
 
+        #Steam window rules
+        windowrule=monitor 0, steam
+        windowrulev2=workspace 4 silent, title:^(Steam)$
+        #windowrule=monitor 0, title:^(Sign in to Steam)$
+        windowrulev2=workspace 4 silent, title:^(Sign in to Steam)$
+        #windowrule=monitor 0, title:^(Special Offers)$
+        windowrulev2=workspace 4 silent, title:^(Special Offers)$
+        #windowrulev2=monitor 0 silent, title:^(notificationtoasts_7_desktop)(.*)$
+        windowrulev2=workspace 4 silent, class:^(steam_app_)(.*)$
 
-        #Disable annoying focus stealing.
-        windowrulev2 = workspace 4 silent, title:^(Steam)$
-        windowrulev2 = workspace 4 silent, title:^(Sign in to Steam)$
-
-        windowrule=float,com.usebottles.bottles
 
         # Binds
         bind=SUPER,RETURN,exec,alacritty
         bind=SUPER,Q,killactive
         bind=SUPER,L,exec,swaylock-fancy
-        bind=SUPERSHIFT,space,togglefloating
+        bind=SUPERSHIFT,space,exec,hyprctl --batch "dispatch togglefloating active; dispatch resizeactive 100 100"
         bind=SUPER,D,exec,fuzzel
         bind=SUPER,P,pseudo
         bind=SUPER,F,fullscreen
         bind=SUPER,M,exec,firefox
         bind=SUPER,E,exec,emacsclient -c
         bind=SUPERSHIFT,E,exec,power-menu
+
 
         # Screenshots
         bind=,Print,exec,screenshot-menu
@@ -180,7 +184,9 @@
         exec-once=mako
         exec-once=hyprpaper
         exec-once=emacs --daemon
+        exec-once=clipse --listen
         exec-once=aw-qt
+        exec-once=openrgb --startminimized -p '' + settings.system.dotDir + ''/user/app/OpenRGB/my-profile.orp
         exec-once=[workspace 5 silent] webcord
         exec-once=[workspace 5 silent] whatsapp-for-linux
         exec-once=[workspace 2 silent] firefox

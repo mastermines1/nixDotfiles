@@ -11,5 +11,6 @@
     ubuntu_font_family
     terminus_font
     meslo-lgs-nf
+    arkpandora_ttf
   ];
 }

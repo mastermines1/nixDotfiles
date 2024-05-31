@@ -32,12 +32,12 @@
 
 
   home.packages = with pkgs; [
-    
-    gparted
+
     baobab
-    vscode.fhs
 
     cbonsai
+
+    vscode-fhs
 
     cava
     playerctl
@@ -54,8 +54,6 @@
 
     webcord-vencord
     whatsapp-for-linux
-
-    avalonia-ilspy
 
     dwarfs
     fuse-overlayfs
