@@ -2,12 +2,17 @@
 let
   colours = config.lib.stylix.colors;
   moduleConfig = {
-    clock = {
+    "clock#time" = {
       interval = 1;
       format = "{:%H:%M:%S}";
       max-length = 25;
       tooltip = true;
       tooltip-format = "{:%d-%m-%Y}";
+    };
+    "clock#date" = {
+      format = "{:%D}";
+      tooltip.enable = true;
+      tooltip.format = "{:A}";
     };
     wireplumber = {
       scroll-step = 5;
@@ -32,7 +37,7 @@ let
       };
       escape = true;
       tooltip = true;
-      exec = "cavaw -b 16";
+      exec = "cavay -b 16";
       return-type = "json";
       on-click = "spotifycli --playpause";
       on-scroll-up = "spotifycli --prev";
@@ -72,8 +77,8 @@ in{
         output = "HDMI-A-1";
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "custom/music" ];
-        modules-right = [ "wireplumber" "clock" ];
-        inherit (moduleConfig) wireplumber clock network "hyprland/workspaces" "custom/music";
+        modules-right = [ "wireplumber" "clock#time" ];
+        inherit (moduleConfig) wireplumber "clock#time" network "hyprland/workspaces" "custom/music";
       };
 
       rightBar = {
@@ -81,9 +86,9 @@ in{
         position = "top";
         output = "DP-2";
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "clock" ];
-        modules-right = [ ];
-        inherit (moduleConfig) clock "hyprland/workspaces";
+        modules-center = [ "clock#date" ];
+        modules-right = [  ];
+        inherit (moduleConfig) "clock#date" "hyprland/workspaces";
       };
     };
     style = ''

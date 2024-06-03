@@ -1,4 +1,4 @@
-{ settings, ... }:
+{ settings, config, ... }:
 
 {
   home.file.".config/alacritty/alacritty.toml".text = ''
@@ -97,6 +97,7 @@ program = "/etc/profiles/per-user/''+settings.user.username+''/bin/zsh"
 decorations = "full"
 dynamic_title = true
 startup_mode = "Maximized"
+opacity = ''+builtins.toString config.stylix.opacity.terminal+''
 
 [window.dimensions]
 columns = 240

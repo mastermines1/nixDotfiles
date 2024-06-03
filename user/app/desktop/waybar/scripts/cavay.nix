@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    (pkgs.writeScriptBin "cavaw" (''
+    (pkgs.writeScriptBin "cavay" (''
       #!/bin/bash
 
 # Nuke all internal spawns when script dies
