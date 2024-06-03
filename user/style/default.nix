@@ -7,7 +7,7 @@
 { lib, pkgs, config, ... }:
 
 {
-  stylix ={
+  stylix = {
     image = pkgs.fetchurl {
       #url = "https://4kwallpapers.com/images/wallpapers/stars-in-sky-galaxy-3840x2160-15601.jpg";
       #sha256 = "e57b111b04549957ab57ead3d4cff9017f5173ee3ebec0864de463f462c47c3f";
@@ -16,6 +16,12 @@
       curlOptsList = ["-HUser-Agent: Wget/1.21.4"];
     };
     polarity = "dark";
+
+    opacity = {
+      desktop = 0.0; #waybars opacity
+      popups = 0.75;
+      terminal = 0.9;
+    };
 
     cursor = {
       package = pkgs.bibata-cursors;

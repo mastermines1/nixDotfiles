@@ -115,6 +115,11 @@ in
     enableZshIntegration = true;
   };
 
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   home.packages = with pkgs; [
     disfetch
@@ -123,8 +128,6 @@ in
     bottom
     fd
     bc
-    direnv
-    nix-direnv
     tldr
     eza
     fzf
@@ -135,8 +138,4 @@ in
     nh
     ffmpeg
   ];
-
-  programs.direnv.enable = true;
-  programs.direnv.enableZshIntegration = true;
-  programs.direnv.nix-direnv.enable = true;
 }
