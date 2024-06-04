@@ -136,7 +136,6 @@ in
     feh
     jq
     btop
-    nh
     ffmpeg
   ];
 
