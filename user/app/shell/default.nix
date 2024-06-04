@@ -12,6 +12,7 @@ let
     df = "df -h";
     c = "clear";
     q = "exit";
+    h = "history";
   };
 in
 {
@@ -138,4 +139,8 @@ in
     nh
     ffmpeg
   ];
+
+  home.sessionVariables = {
+    FLAKE = builtins.toString settings.system.dotDir;
+  };
 }
