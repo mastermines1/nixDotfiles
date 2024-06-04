@@ -5,7 +5,8 @@ let
     "clock#time" = {
       interval = 1;
       format = "{:%H:%M:%S}";
-      max-length = 25;
+      min-length = 7;
+      max-length = 7;
       tooltip = true;
       tooltip-format = "{:%d-%m-%Y}";
     };
@@ -86,9 +87,9 @@ in{
         position = "top";
         output = "DP-2";
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "clock#date" ];
-        modules-right = [  ];
-        inherit (moduleConfig) "clock#date" "hyprland/workspaces";
+        modules-center = [ "clock#time" ];
+        modules-right = [ "clock#date" ];
+        inherit (moduleConfig) "clock#time" "clock#date" "hyprland/workspaces";
       };
     };
     style = ''

@@ -1,10 +1,8 @@
 @import "colours.css";
 
 window#waybar {
-    color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
-    background-color: transparent;
 }
 
 #window {
@@ -14,6 +12,7 @@ window#waybar {
     transition: none;
 }
 
+#custom-music,
 #workspaces,
 #network,
 #memory,
@@ -31,6 +30,10 @@ window#waybar {
     border-radius: 10px;
     transition: none;
 }
+#custom-music {
+    color: @base0B;
+    background: @base01;
+}
 #workspaces {
     color: @base00;
     background: @base0D;
@@ -38,9 +41,6 @@ window#waybar {
 
 #workspaces button {
     color: @base00;
-}
-#workspaces button.active {
-    background: transparent
 }
 
 tooltip {

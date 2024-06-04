@@ -10,12 +10,6 @@
       pushd ''+settings.system.dotDir+'' > /dev/null
 
       case $1 in
-        "install")
-          echo "Not implemented yet...";;
-
-        "log")
-          cat "update.log";;
-
         "push")
           echo "Pushing to Origin..."
           git push origin main;;
@@ -28,7 +22,7 @@
 
           # Build test system. Will use home manager if on another os, and nixos-rebuild if not.
 
-          sudo nixos-rebuild test --flake .#system
+          nh os test -H system
           echo "NixOS Test Built OK!";;
 
         "flake")
@@ -40,7 +34,8 @@
           echo "Building config and committing..."
           git add -A
           read -rp "Enter commit message (leave blank for generation number): " msg
-          sudo nixos-rebuild switch --flake .#system -I ./hosts/${settings.system.profile}
+          #sudo nixos-rebuild switch --flake .#system -I ./hosts/${settings.system.profile}
+          nh os switch -H system
 
           # If the user has entered no comit message, generate it.
           if ! [[ -n "$msg" ]]; then

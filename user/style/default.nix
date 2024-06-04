@@ -23,6 +23,10 @@
       terminal = 0.9;
     };
 
+    targets = {
+
+    };
+
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
