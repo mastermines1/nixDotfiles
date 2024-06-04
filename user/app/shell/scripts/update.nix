@@ -35,7 +35,7 @@
           git add -A
           read -rp "Enter commit message (leave blank for generation number): " msg
           #sudo nixos-rebuild switch --flake .#system -I ./hosts/${settings.system.profile}
-          nh os switch -H system -- -I ./hosts/${settings.system.profile}
+          sudo -E -u ${settings.user.username} nh os switch -H system
 
 
           # If the user has entered no comit message, generate it.
