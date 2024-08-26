@@ -26,7 +26,7 @@ in
     history = {
       save = 5000;
       size = 5000;
-      path = "~/.zsh_history";
+      path = ''/home/''+settings.user.username+''/.zsh_history'';
       share = true;
       ignoreDups = true;
       ignoreSpace = true;

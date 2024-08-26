@@ -11,7 +11,7 @@ let
       tooltip-format = "{:%d-%m-%Y}";
     };
     "clock#date" = {
-      format = "{:%D}";
+      format = "{:%d/%m/%y}";
       tooltip.enable = true;
       tooltip.format = "{:A}";
     };

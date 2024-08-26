@@ -10,12 +10,13 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-#  networking.firewall = {
-#    allowedTCPPorts = [ 8384 22000 ];
-#    allowedTCPPortRanges = [ { from = 1714; to = 1764;} ];
-#    allowedUDPPorts = [ 22000 21027 ];
-#    allowedUDPPortRanges = [ { from = 1714; to = 1764;} ];
-#  };
+  networking.firewall = {
+      allowedTCPPorts = [ 80 443 7913];
+      allowedUDPPortRanges = [
+        { from = 4000; to = 4007; }
+        { from = 8000; to = 8010; }
+      ];
+  };
 
   # Enable tailscale
   services.tailscale.enable = true;

@@ -62,5 +62,6 @@
     qbittorrent
     mullvad-vpn
 
+    cardinal
   ];
 }

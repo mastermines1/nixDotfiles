@@ -138,7 +138,7 @@
 
 
         # Screenshots
-        bind=,Print,exec,screenshot-menu
+        bind=,Print,exec,hyprctl dispatch exec "[noanim] screenshot-menu"
         #bind=SHIFT,Print,exec,grimblast --notify --cursor copysave area
 
         bindm=SUPER,mouse:272,movewindow
