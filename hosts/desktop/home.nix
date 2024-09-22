@@ -12,6 +12,7 @@
    ../common-home.nix
    ../../user/app/emacs
    ../../user/app/video/mpv
+   ../../user/app/music/reaper
    ../../user/lang/csharp
    ../../user/lang/phython
 #   ../../user/lang/phython/phython-packages
@@ -62,6 +63,8 @@
     qbittorrent
     mullvad-vpn
 
-    cardinal
+
+
+
   ];
 }

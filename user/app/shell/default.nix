@@ -127,6 +127,8 @@ in
     btop
     ffmpeg
     oh-my-posh
+    gh
+    git
   ];
 
   home.sessionVariables = {

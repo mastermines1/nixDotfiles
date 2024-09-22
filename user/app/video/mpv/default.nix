@@ -8,6 +8,13 @@
         visualizer
         sponsorblock
         quality-menu
-      ];
+        #memo
+        reload
+        autoload
+        mpv-cheatsheet
+        mpv-playlistmanager
+        #autosubsync-mpv
+        webtorrent-mpv-hook
+    ];
   };
 }

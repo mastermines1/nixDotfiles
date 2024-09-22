@@ -34,7 +34,7 @@
         workspace=3,monitor:HDMI-A-1
         workspace=4,monitor:HDMI-A-1
         workspace=5,monitor:DP-2
-        workspace=6,monitor:DP-2
+        workspace=6,monitor:DP-2, default:true
         workspace=7,monitor:HDMI-A-1
         workspace=8,monitor:DP-2
         workspace=9,monitor:HDMI-A-1
@@ -57,11 +57,11 @@
         }
 
         general {
-            sensitivity=1.0 # for mouse cursor
+            #sensitivity=1.0 # for mouse cursor
             gaps_in=3
             gaps_out=8
             border_size=2
-            apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
+            #apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
         }
         decoration {
             rounding = 8

@@ -80,7 +80,6 @@
     libnotify
     killall
     spotify
-    reaper
   ];
 
   boot.supportedFilesystems = [ "ntfs" ];

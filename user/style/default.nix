@@ -18,7 +18,7 @@
     polarity = "dark";
 
     opacity = {
-      desktop = 0.0; #waybars opacity
+      desktop = 1.0; #waybars opacity
       popups = 0.75;
       terminal = 0.9;
     };
