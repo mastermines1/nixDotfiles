@@ -8,5 +8,6 @@
     cardinal
     drumgizmo
     x42-avldrums
+    hydrogen
   ];
 }

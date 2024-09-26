@@ -129,6 +129,7 @@ in
     oh-my-posh
     gh
     git
+    tmux
   ];
 
   home.sessionVariables = {

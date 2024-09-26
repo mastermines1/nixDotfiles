@@ -80,6 +80,7 @@
     libnotify
     killall
     spotify
+    inputs.zen-browser.packages."${system}".default
   ];
 
   boot.supportedFilesystems = [ "ntfs" ];

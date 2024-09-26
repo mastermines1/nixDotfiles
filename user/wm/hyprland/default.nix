@@ -105,8 +105,8 @@
         windowrule=workspace 5, WebCord
         windowrule=monitor 1, whatsapp
         windowrule=workspace 5, whatsapp
-        windowrule=monitor 0, firefox
-        windowrule=workspace 2, firefox
+        windowrule=monitor 0, zen
+        windowrule=workspace 2, zen
         windowrule=size 100 100, Alacritty
         windowrule=monitor 0, Alacritty
         windowrule=workspace 1, Alacritty
@@ -132,7 +132,7 @@
         bind=SUPER,D,exec,fuzzel
         bind=SUPER,P,pseudo
         bind=SUPER,F,fullscreen
-        bind=SUPER,M,exec,firefox
+        bind=SUPER,M,exec,zen
         bind=SUPER,E,exec,emacsclient -c
         bind=SUPERSHIFT,E,exec,power-menu
 
@@ -189,7 +189,7 @@
         exec-once=openrgb --startminimized -p '' + settings.system.dotDir + ''/user/app/OpenRGB/my-profile.orp
         exec-once=[workspace 5 silent] webcord
         exec-once=[workspace 5 silent] whatsapp-for-linux
-        exec-once=[workspace 2 silent] firefox
+        exec-once=[workspace 2 silent] zen
         exec-once=[workspace 4 silent] steam -console
         exec-once=[workspace 1 silent] alacritty
         exec-once=[workspace 6 silent] spotify
