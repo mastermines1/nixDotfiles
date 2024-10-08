@@ -1,7 +1,7 @@
 { config, pkgs, settings,... }:
 {
   imports = [ 
-    ../../lang/plantuml
+    ../../../lang/plantuml
 
     # Emacs config files:
     ./config.el.nix

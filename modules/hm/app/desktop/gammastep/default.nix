@@ -5,7 +5,7 @@
     enable = true;
     temperature.night = 3500;
     temperature.day = 6500;
-    latitude = settings.user.location.lat;
-    longitude = settings.user.location.lon;
+    latitude = settings.location.lat;
+    longitude = settings.location.lon;
   };
 }

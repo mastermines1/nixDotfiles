@@ -10,8 +10,11 @@
   ]);
 
   networking = {
-    hostName = "nixos"; # Define your hostname.
-    dns = "none";
+    networkmanager = {
+      enable = true;
+      dns = "none";
+    };
+
   };
 
   hardware.bluetooth = {

@@ -6,7 +6,7 @@
     ./scripts/screenshot-menu.nix
     ./scripts/swaylock-fancy
     ./wayland.nix
-    ../app/desktop/waybar.nix
+    ../app/desktop/waybar
   ];
   
   home.packages = with pkgs; [
@@ -28,13 +28,13 @@
     settings = {
 
       # Define monitors
-      monitor = if (osConfig.networking.hostName == settings.userName + "-destkop") then [
+      monitor = if (osConfig.networking.hostName == settings.username + "-destkop") then [
         "HDMI-A-1,preferred,0x0,1"
         "DP-2,preferred,auto,1"
       ] else[];
       
       # Define workspaces
-      workspace = if (osConfig.networking.hostName == settings.userName + "-desktop") then [
+      workspace = if (osConfig.networking.hostName == settings.username + "-desktop") then [
         "1,monitor:HDMI-A-1"
         "2,monitor:HDMI-A-1"
         "3,monitor:HDMI-A-1"
@@ -50,9 +50,9 @@
       input = {
         kb_layout="gb";
         follow_mouse = 1;
-        touchpad = [
+        touchpad = {
           natural_scroll = "no";
-        ];
+        };
       };
 
       general= {
@@ -81,7 +81,7 @@
           "border,1,10,default"
           "fade,1,10,default"
           "workspaces,1,6,default"
-        ]
+        ];
       };
 
       dwindle = {
@@ -132,7 +132,7 @@
         "SUPER,RETURN,exec,alacritty"
         "SUPER,Q,killactive"
         "SUPER,L,exec,swaylock-fancy"
-        "SUPERSHIFT,space,exec,hyprctl --batch "dispatch togglefloating active; dispatch resizeactive 100 100""
+        "SUPERSHIFT,space,exec,hyprctl --batch \"dispatch togglefloating active; dispatch resizeactive 100 100\""
         "SUPER,D,exec,fuzzel"
         "SUPER,P,pseudo"
         "SUPER,F,fullscreen"
@@ -141,7 +141,7 @@
         "SUPERSHIFT,E,exec,power-menu"
 
         # Screenshots
-        ",Print,exec,hyprctl dispatch exec "[noanim] screenshot-menu""
+        ",Print,exec,hyprctl dispatch exec \"[noanim] screenshot-menu\""
 
         "SUPER,left,movefocus,l"
         "SUPER,right,movefocus,r"

@@ -40,9 +40,9 @@ let
       tooltip = true;
       exec = "cavay -b 16";
       return-type = "json";
-      on-click = "spotifycli --playpause";
-      on-scroll-up = "spotifycli --prev";
-      on-scroll-down = "spotifycli --next";
+      on-click = "${pkgs.spotify-cli-linux}/bin/spotifycli --playpause";
+      on-scroll-up = "${pkgs.spotify-cli-linux}/bin/spotifycli --prev";
+      on-scroll-down = "${pkgs.spotify-cli-linux}/bin/spotifycli --next";
       #on-click-right = "g4music";
       max-length = 35;
     };

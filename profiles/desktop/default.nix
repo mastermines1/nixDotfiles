@@ -1,8 +1,8 @@
-{pkgs, config, lib, settings,...}:
+{pkgs, config, lib, settings, ...}:
 
 {
   imports = [
-    ./hardware-configuation.nix
+    ./hardware-configuration.nix
     ../desktop_base
   ] ++
   (map (m: ../../modules/nix + m) [
@@ -11,29 +11,31 @@
     "/style"
   ]);
 
-  users.users.${settings.username} = {
+  users.users.${settings.name} = {
     isNormalUser = true;
-    description = settings.name;
     extraGroups = [ "networkmanager" "wheel" "dialout" "audio"];
   };
 
   networking = {
-    hostName = settings.userName + "-desktop";
-    firewall = {
-
-    };
-  }
+    hostName = settings.username + "-desktop";
+  };
 
   services = {
     hardware.openrgb = {
       enable = true;
       package = pkgs.openrgb-with-all-plugins;
-    }
+    };
   };
 
   programs = {
     steam.enable = true;
+    nh = {
+      enable = true;
+      flake = settings.dotDir;
+    };
   };
+  
+  security.pam.services.swaylock = {};
 
   fileSystems."/run/mount/HHD" = {
    device = "/dev/disk/by-uuid/68932330-21aa-4e00-81c2-1bd38218bf34";

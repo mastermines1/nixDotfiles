@@ -1,5 +1,5 @@
 {config, lib, pkgs, ...}:
 
 {
-  security.polkit.enable;
+  security.polkit.enable = true;
 }

@@ -94,7 +94,7 @@ home.file.".config/doom/config.el".text = ''
 (setq org-latex-minted-options '(("breaklines" "true")
                                  ("breakanywhere" "true")))
 ;; Plantuml config
-(setq plantuml-executable-path "/etc/profiles/per-user/''+settings.user.username+''/bin/plantuml")
+(setq plantuml-executable-path "/etc/profiles/per-user/''+settings.username+''/bin/plantuml")
 (setq plantuml-default-exec-mode 'executable)
 
 ;; KeyBinds

@@ -1,7 +1,7 @@
-{ config, settings, lib, pkgs, ... }:
+{ config, settings, lib, pkgs, osConfig, ... }:
 
 {
-  security.pam.services.swaylock = {};
+
   home.packages = with pkgs; [
     imagemagick
     i3lock-color
@@ -11,7 +11,7 @@
 # Dependencies: imagemagick, grim (optional)
 set -o errexit -o noclobber -o nounset
 
-PREFIX="'' +settings.system.dotDir +''/user/wm/hyprland/scripts/swaylock-fancy"
+PREFIX="${settings.dotDir}/user/wm/hyprland/scripts/swaylock-fancy"
 
 hue=(-level "0%,100%,0.6")
 effect=(-filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize 500.5%)

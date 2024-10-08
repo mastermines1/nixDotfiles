@@ -1,11 +1,11 @@
-{pkgs, config, lib, ...}:
+{pkgs, config, lib, settings, ...}:
 
 {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.username = "${settings.user.username}";
-  home.homeDirectory = "/home/${settings.user.username}";
+  home.username = settings.username;
+  home.homeDirectory = "/home/${settings.username}";
   home.stateVersion = "23.11";
 
   imports = [
@@ -14,6 +14,7 @@
   (map (m: ../../modules/hm + m) [
     /app/editors/emacs
     /app/video/mpv.nix
+    /app/programming/vscode
     /app/music-creation/reaper
     /wm/${settings.wm}.nix
 

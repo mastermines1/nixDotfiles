@@ -27,7 +27,7 @@ in
     history = {
       save = 5000;
       size = 5000;
-      path = ''/home/''+settings.user.username+''/.zsh_history'';
+      path = ''/home/${settings.username}/.zsh_history'';
       share = true;
       ignoreDups = true;
       ignoreSpace = true;
@@ -67,11 +67,6 @@ in
     enableZshIntegration = true;
   };
 
-  programs.nh = {
-    enable = true;
-    flake = settings.dotDir;
-  };
-
   home.packages = with pkgs; [
     disfetch
     onefetch
@@ -85,5 +80,6 @@ in
     feh
     jq
     btop
+    comma
   ];
 }

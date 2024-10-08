@@ -2,6 +2,8 @@
 
 {
   home.packages = with pkgs; [
+    playerctl
+    cava
     (pkgs.writeScriptBin "cavay" (''
       #!/bin/bash
 
@@ -89,8 +91,6 @@ clean_create_pipe $playerctl_waybar_pipe
 # playerctl output into playerctl_waybar_pipe
 playerctl --player=spotify metadata --format '{"text": "{{title}} - {{artist}}", "tooltip": "{{markup_escape(title)}} - {{markup_escape(artist)}} ", "alt": "{{status}}", "class": "{{status}}"}' -F >$playerctl_waybar_pipe &
 
-
-#spotifycli --status #somehow inject into $line at wanted locations OR use playerctl to find when song ends (could be jank) OR use playerctl to detect if current player is spotify (probbaly best idea)
 
 
 
