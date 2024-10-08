@@ -35,15 +35,15 @@
             personal-email = vars.personal-email;
             git-email = vars.git-email;
             wm = "hyprland";
-            dm = "gdm";
-            #theme = "gruvbox-material-dark-soft"; # Find themes at https://tinted-theming.github.io/base16-gallery/
-            #wallpaper = ./wallpapers/purple-landscape.jpeg;
-            #reThemeWall = true;
+            dm = "ly";
+            #theme = ""; # Find themes at https://tinted-theming.github.io/base16-gallery/
+            #wallpaper = ;
+            #reThemeWall = ;
             loc = vars.loc;
           };
         in lib.nixosSystem {
           modules = [
-            ./hosts/desktop/default.nix
+            ./profiles/desktop/default.nix
             stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
