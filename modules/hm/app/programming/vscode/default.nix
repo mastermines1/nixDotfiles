@@ -7,6 +7,14 @@
       marp-team.marp-vscode
       ms-dotnettools.csharp
     ];
+    userSettings = {
+      "editor.fontFamily" = "'DejaVu Sans Mono'";
+      "terminal.integrated.fontFamily" = "'DejaVu Sans Mono'";
+      "workbench.colorTheme" = "Stylix";
+      "workbench.sideBar.location" = "right";
+      "explorer.confirmDragAndDrop" = false;
+      "explorer.confirmDelete" = false;
+    };
   };
   home.sessionVariables = {
     DOTNET_ROOT = "${pkgs.dotnet-sdk}";

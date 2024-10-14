@@ -11,7 +11,7 @@
 # Dependencies: imagemagick, grim (optional)
 set -o errexit -o noclobber -o nounset
 
-PREFIX="${settings.dotDir}/user/wm/hyprland/scripts/swaylock-fancy"
+PREFIX="${settings.dotDir}/modules/hm/wm/hyprland/scripts/swaylock-fancy"
 
 hue=(-level "0%,100%,0.6")
 effect=(-filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize 500.5%)

@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }:
 
 {
-  hardware.opengl = {
+  hardware.graphics = {
     # Mesa
     enable = true;
     ## radv: an open-source Vulkan driver from freedesktop
 
-    driSupport32Bit = true;
+    enable32Bit = true;
 
     ## amdvlk: an open-source Vulkan driver from AMD
     extraPackages = [ pkgs.amdvlk ];

@@ -15,7 +15,7 @@
     };
 
     zen-browser = {
-      url = "github:MarceColl/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };  
     stylix.url = "github:danth/stylix";
@@ -25,9 +25,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, secrets, nil, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, secrets, nil, nixvim, ... }:
     let      
       inherit (self) outputs;
       lib = nixpkgs.lib;
@@ -44,7 +48,7 @@
             personal-email = vars.personal-email;
             git-email = "85805049+mastermines1@users.noreply.github.com";
             wm = "hyprland";
-            dm = "gdm";
+            dm = "tuigreet";
             theme = "atelier-sulphurpool"; # Find themes at https://tinted-theming.github.io/base16-gallery/
             wallpaper = "";
             loc = vars.loc;
@@ -57,7 +61,10 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users."${vars.name}".imports = [ ./profiles/desktop/home.nix ];
+              home-manager.users."${vars.name}".imports = [ 
+                ./profiles/desktop/home.nix
+                nixvim.homeManagerModules.nixvim 
+              ];
               home-manager.extraSpecialArgs = {
                 inherit inputs;
                 inherit settings;

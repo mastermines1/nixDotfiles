@@ -29,8 +29,7 @@
   # Configure console keymap
   console.keyMap = "uk";
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  boot.tmp.cleanOnBoot = true;
 
   nix.gc = {
     automatic = true;

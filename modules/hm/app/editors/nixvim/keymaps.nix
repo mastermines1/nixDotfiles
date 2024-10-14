@@ -1,0 +1,9 @@
+{...}:
+
+{
+	program.nixvim = {
+		keymaps = [
+			
+		];
+	};
+}

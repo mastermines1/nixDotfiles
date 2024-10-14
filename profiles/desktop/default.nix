@@ -18,6 +18,12 @@
 
   networking = {
     hostName = settings.username + "-desktop";
+    firewall = {
+      
+    };
+    nameservers = [
+      "8.8.8.8"
+    ];
   };
 
   services = {
@@ -42,6 +48,7 @@
    fsType = "ext4";
   };
 
+  nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "23.11";
 }

@@ -47,11 +47,25 @@ in
         "^[OB"
       ];
     };
+    
+    plugins = [
+      {
+        #fzf-tab
+        name = "fzf-tab";
+        src = pkgs.fetchFromGitHub {
+          owner = "Aloxaf";
+          repo = "fzf-tab";
+          rev = "c7fb028ec0bbc1056c51508602dbd61b0f475ac3";
+          sha256 = "061jjpgghn8d5q2m2cd2qdjwbz38qrcarldj16xvxbid4c137zs2";
+        };
+      }
+    ];
     initExtra = ''
-    PROMPT=" ◉ %U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
-     %F{green}→%f "
-    RPROMPT="%F{red}▂%f%F{yellow}▄%f%F{green}▆%f%F{cyan}█%f%F{blue}▆%f%F{magenta}▄%f%F{white}▂%f"
-    [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
+      bindkey "^[[1;5C" forward-word
+      bindkey "^[[1;5D" backward-word
+
+      autoload -U compinit; compinit
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
     '';
   };
 
@@ -60,6 +74,16 @@ in
     enableCompletion = true;
     shellAliases = myAliases;
   };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    enableTransience = true;
+    settings = {
+      add_newline = false;
+    };
+  };
+
 
   programs.zoxide = {
     enable = true;
@@ -71,7 +95,6 @@ in
     disfetch
     onefetch
     bat
-    bottom
     fd
     bc
     tldr
@@ -81,5 +104,27 @@ in
     jq
     btop
     comma
+    fzf
   ];
+
+	programs.tmux = { 
+		enable = true;
+		clock24 = true;
+		mouse = true;
+		prefix = "C-Space";
+		keyMode = "vi";
+		baseIndex = 1;
+		escapeTime = 0;
+		newSession = true;
+		plugins = with pkgs.tmuxPlugins; [
+			yank
+			vim-tmux-navigator
+			tokyo-night-tmux
+		];
+		extraConfig = 
+			"set-option -sa terminal-overrides \",xterm*:Tc\"
+			bind -n M-H previous-window
+			bind -n M-L next-window";
+	};
+
 }

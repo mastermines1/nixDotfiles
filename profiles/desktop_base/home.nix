@@ -9,8 +9,7 @@
     /app/shell/alacritty.nix
     /app/git
   ]);
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  
   home.packages = with pkgs; [
     
   ];

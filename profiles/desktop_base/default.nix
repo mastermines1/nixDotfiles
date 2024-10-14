@@ -14,7 +14,6 @@
       enable = true;
       dns = "none";
     };
-
   };
 
   hardware.bluetooth = {

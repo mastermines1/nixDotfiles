@@ -13,6 +13,7 @@
   ] ++
   (map (m: ../../modules/hm + m) [
     /app/editors/emacs
+    /app/editors/nixvim
     /app/video/mpv.nix
     /app/programming/vscode
     /app/music-creation/reaper

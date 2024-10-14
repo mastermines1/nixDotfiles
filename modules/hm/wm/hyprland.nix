@@ -30,7 +30,7 @@
       # Define monitors
       monitor = if (osConfig.networking.hostName == settings.username + "-destkop") then [
         "HDMI-A-1,preferred,0x0,1"
-        "DP-2,preferred,auto,1"
+        "DP-2,preferred,1920x0,1"
       ] else[];
       
       # Define workspaces
@@ -69,8 +69,6 @@
           passes = 2;
           new_optimizations = true;
           ignore_opacity = true;
-          xray = true;
-          popups = true;
         };
       };
 
@@ -128,7 +126,7 @@
         "workspace 4 silent, class:^(steam_app_)(.*)$"
       ];
 
-      binds = [
+      bind = [
         "SUPER,RETURN,exec,alacritty"
         "SUPER,Q,killactive"
         "SUPER,L,exec,swaylock-fancy"
