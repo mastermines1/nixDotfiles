@@ -12,12 +12,12 @@
     ../desktop_base/home.nix
   ] ++
   (map (m: ../../modules/hm + m) [
-    /app/editors/emacs
-    /app/editors/nixvim
+    /app/editors/${settings.editor}
     /app/video/mpv.nix
     /app/programming/vscode
     /app/music-creation/reaper
     /wm/${settings.wm}.nix
+    /style
 
     /lang/csharp
     /lang/python
@@ -49,5 +49,7 @@
     #messages
     webcord-vencord
     whatsapp-for-linux
+
+		qbittorrent
   ];
 }

@@ -4,6 +4,7 @@
 	imports = [
 		./plugins.nix
 		./lsp.nix
+		./keymaps.nix
 	];
 
 	programs.nixvim = {
@@ -27,8 +28,11 @@
     };
 		
 		# Enables wl-copy as clipboard
-    clipboard.providers.wl-copy.enable = true;
-
+		clipboard = {
+			register = "unnamedplus";
+			providers.wl-copy.enable = true;
+		};
+		
 
   };
 }

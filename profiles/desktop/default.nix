@@ -6,7 +6,7 @@
     ../desktop_base
   ] ++
   (map (m: ../../modules/nix + m) [
-    "/gpu/amd-rx570.nix"
+#    "/gpu/amd-rx570.nix"
     "/wm/${settings.wm}.nix"
     "/style"
   ]);
@@ -31,6 +31,11 @@
       enable = true;
       package = pkgs.openrgb-with-all-plugins;
     };
+		
+		mullvad-vpn = {
+			enable = true;
+			package = pkgs.mullvad-vpn;
+		};
   };
 
   programs = {

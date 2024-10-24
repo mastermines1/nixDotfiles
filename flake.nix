@@ -17,43 +17,55 @@
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
-    };  
-    stylix.url = "github:danth/stylix";
-
-    nil = {
-      url = "github:oxalica/nil";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix.url = "github:danth/stylix";
 
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nvchad = {
+      url = "github:NvChad/starter";
+      flake = false;
+    };
+    nvf.url = "github:notashelf/nvf/v0.7";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, secrets, nil, nixvim, ... }:
-    let      
-      inherit (self) outputs;
-      lib = nixpkgs.lib;
-      vars = secrets.vars;
-    in{
-      nixosConfigurations = {
-        desktop = let
-          system = "x86_64-linux";
-          pkgs = nixpkgs;
-          settings = {
-            dotDir = "/home/${vars.name}/.dotfiles";
-            username = vars.name;
-            name = vars.name;
-            personal-email = vars.personal-email;
-            git-email = "85805049+mastermines1@users.noreply.github.com";
-            wm = "hyprland";
-            dm = "tuigreet";
-            theme = "atelier-sulphurpool"; # Find themes at https://tinted-theming.github.io/base16-gallery/
-            wallpaper = "";
-            loc = vars.loc;
-          };
-        in lib.nixosSystem {
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    stylix,
+    secrets,
+    nixvim,
+    nvchad,
+    nvf,
+    ...
+  }: let
+    inherit (self) outputs;
+    lib = nixpkgs.lib;
+    vars = secrets.vars;
+  in {
+    nixosConfigurations = {
+      desktop = let
+        system = "x86_64-linux";
+        pkgs = nixpkgs;
+        settings = {
+          dotDir = "/home/${vars.name}/.dotfiles";
+          username = vars.name;
+          name = vars.name;
+          personal-email = vars.personal-email;
+          git-email = "85805049+mastermines1@users.noreply.github.com";
+          wm = "hyprland";
+          dm = "tuigreet";
+          theme = "atelier-sulphurpool"; # Find themes at https://tinted-theming.github.io/base16-gallery/
+          wallpaper = "";
+          loc = vars.loc;
+          editor = "nvchad";
+        };
+      in
+        lib.nixosSystem {
           modules = [
             ./profiles/desktop/default.nix
             stylix.nixosModules.stylix
@@ -61,9 +73,10 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users."${vars.name}".imports = [ 
+              home-manager.users."${vars.name}".imports = [
                 ./profiles/desktop/home.nix
-                nixvim.homeManagerModules.nixvim 
+                nixvim.homeManagerModules.nixvim
+                nvf.homeManagerModules.default
               ];
               home-manager.extraSpecialArgs = {
                 inherit inputs;
@@ -76,6 +89,6 @@
             inherit settings;
           };
         };
-      };
     };
+  };
 }

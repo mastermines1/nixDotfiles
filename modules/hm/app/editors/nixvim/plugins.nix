@@ -8,6 +8,8 @@
 		nvim-tree = {
 			enable = true;
 			openOnSetup = true;
+			autoClose = true;
+			actions.openFile.quitOnOpen = true;
 		};
 
 		telescope = {
@@ -32,7 +34,7 @@
 		};
 
 		tmux-navigator.enable = true;
-
+		comment.enable = true;
 		treesitter.enable = true;
 	};
 }

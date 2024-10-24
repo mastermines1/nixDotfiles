@@ -30,7 +30,7 @@
       # Define monitors
       monitor = if (osConfig.networking.hostName == settings.username + "-destkop") then [
         "HDMI-A-1,preferred,0x0,1"
-        "DP-2,preferred,1920x0,1"
+        "HDMI-A-2,preferred,1920x0,1"
       ] else[];
       
       # Define workspaces
@@ -39,12 +39,12 @@
         "2,monitor:HDMI-A-1"
         "3,monitor:HDMI-A-1"
         "4,monitor:HDMI-A-1"
-        "5,monitor:DP-2"
-        "6,monitor:DP-2, default:true"
+        "5,monitor:HDMI-A-2"
+        "6,monitor:HDMI-A-2, default:true"
         "7,monitor:HDMI-A-1"
-        "8,monitor:DP-2"
+        "8,monitor:HDMI-A-2"
         "9,monitor:HDMI-A-1"
-        "10,monitor:DP-2"
+        "10,monitor:HDMI-A-2"
       ] else [];
 
       input = {
@@ -95,6 +95,7 @@
       exec-once = [
         "waybar"
         "mako"
+				"openrgb --minimized"
         "sleep 5 && emacs --daemon"
         "[workspace 5 silent] webcord"
         "[workspace 5 silent] whatsapp-for-linux"

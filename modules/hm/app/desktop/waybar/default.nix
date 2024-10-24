@@ -85,7 +85,7 @@ in{
       rightBar = {
         layer = "top";
         position = "top";
-        output = "DP-2";
+        output = "HDMI-A-2";
         modules-left = [ ];
         modules-center = [ "clock#time" ];
         modules-right = [ "clock#date" ];
