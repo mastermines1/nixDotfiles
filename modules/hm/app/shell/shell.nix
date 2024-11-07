@@ -1,6 +1,9 @@
-{pkgs, lib, settings, ...}:
-
-let
+{
+  pkgs,
+  lib,
+  settings,
+  ...
+}: let
   # My shell aliases
   myAliases = {
     cat = "bat";
@@ -15,8 +18,7 @@ let
     q = "exit";
     h = "history";
   };
-in
-{
+in {
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -47,7 +49,7 @@ in
         "^[OB"
       ];
     };
-    
+
     plugins = [
       {
         #fzf-tab
@@ -84,7 +86,6 @@ in
     };
   };
 
-
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
@@ -107,66 +108,30 @@ in
     fzf
   ];
 
-	programs.tmux = { 
-		enable = true;
-		clock24 = true;
-		mouse = true;
-		prefix = "C-Space";
-		keyMode = "vi";
-		baseIndex = 1;
-		escapeTime = 0;
-		newSession = true;
-		plugins = with pkgs.tmuxPlugins; [
-			yank
-			vim-tmux-navigator
-		];
-		extraConfig = 
-			"set-option -sa terminal-overrides \",xterm*:Tc\"
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    mouse = true;
+    prefix = "C-Space";
+    keyMode = "vi";
+    baseIndex = 1;
+    escapeTime = 0;
+    newSession = true;
+    plugins = with pkgs.tmuxPlugins; [
+      yank
+      vim-tmux-navigator
+      catppuccin
+    ];
+    extraConfig = "set-option -sa terminal-overrides \",xterm*:Tc\"
 			bind -n M-H previous-window
 			bind -n M-L next-window
-			# DESIGN TWEAKS
 
-			# don't do anything when a 'bell' rings
-			set -g visual-activity off
-			set -g visual-bell off
-			set -g visual-silence off
-			setw -g monitor-activity off
-			set -g bell-action none
-			
-			# clock mode
-			setw -g clock-mode-colour yellow
-			
-			# copy mode
-			setw -g mode-style 'fg=black bg=red bold'
-			
-			# panes
-			set -g pane-border-style 'fg=red'
-			set -g pane-active-border-style 'fg=yellow'
-			
-			# statusbar
-			set -g status-position top
-			set -g status-justify left
-			set -g status-style 'fg=red'
-			
-			set -g status-left ''
-			set -g status-left-length 10
-			
-			set -g status-right-style 'fg=black bg=yellow'
-			set -g status-right ''
-			set -g status-right-length 50
-			
-			setw -g window-status-current-style 'fg=black bg=red'
-			setw -g window-status-current-format ' #I #W #F '
-			
-			setw -g window-status-style 'fg=red bg=black'
-			setw -g window-status-format ' #I #[fg=white]#W #[fg=yellow]#F '
-			
-			setw -g window-status-bell-style 'fg=yellow bg=red bold'
-			
-			# messages
-			set -g message-style 'fg=yellow bg=red bold'
+			set -g default-terminal \"tmux-256color\"
+			# DESIGN TWEAKS
+			set -g @catppuccin_flavor \"mocha\"
+			set -g @catppuccin_window_status_style \"rounded\"
+			set -g renumber-windows on
 
 			";
-	};
-
+  };
 }

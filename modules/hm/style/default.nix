@@ -20,6 +20,7 @@ in
     };
     targets = {
       vscode.enable = false;
+			alacritty.enable = false;
     };
     fonts = {
       # serif = {

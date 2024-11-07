@@ -1,6 +1,5 @@
 {
   description = "New and improved nix flake";
-
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
@@ -43,14 +42,13 @@
     nvf,
     ...
   }: let
-    inherit (self) outputs;
     lib = nixpkgs.lib;
     vars = secrets.vars;
   in {
+
+	nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     nixosConfigurations = {
       desktop = let
-        system = "x86_64-linux";
-        pkgs = nixpkgs;
         settings = {
           dotDir = "/home/${vars.name}/.dotfiles";
           username = vars.name;
@@ -62,7 +60,7 @@
           theme = "atelier-sulphurpool"; # Find themes at https://tinted-theming.github.io/base16-gallery/
           wallpaper = "";
           loc = vars.loc;
-          editor = "nvchad";
+          editor = "nvim";
         };
       in
         lib.nixosSystem {

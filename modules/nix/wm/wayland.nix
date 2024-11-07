@@ -1,7 +1,6 @@
-{pkgs, ...}:
-{
-  imports = [ 
-   ./fonts.nix
+{pkgs, ...}: {
+  imports = [
+    ./fonts.nix
   ];
 
   services.xserver = {
