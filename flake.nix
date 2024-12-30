@@ -18,17 +18,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nvchad = {
-      url = "github:NvChad/starter";
-      flake = false;
-    };
-    nvf.url = "github:notashelf/nvf/v0.7";
   };
 
   outputs = inputs @ {
@@ -37,19 +26,16 @@
     home-manager,
     stylix,
     secrets,
-    nixvim,
-    nvchad,
-    nvf,
     ...
   }: let
     lib = nixpkgs.lib;
     vars = secrets.vars;
   in {
-
-	nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     nixosConfigurations = {
       desktop = let
         settings = {
+          profile = "desktop";
           dotDir = "/home/${vars.name}/.dotfiles";
           username = vars.name;
           name = vars.name;
@@ -57,10 +43,14 @@
           git-email = "85805049+mastermines1@users.noreply.github.com";
           wm = "hyprland";
           dm = "tuigreet";
-          theme = "atelier-sulphurpool"; # Find themes at https://tinted-theming.github.io/base16-gallery/
+          theme = "catppuccin-mocha";
           wallpaper = "";
           loc = vars.loc;
           editor = "nvim";
+          monitors = {
+            primary = "HDMI-A-1";
+            secondary = "HDMI-A-2";
+          };
         };
       in
         lib.nixosSystem {
@@ -73,8 +63,6 @@
               home-manager.useUserPackages = true;
               home-manager.users."${vars.name}".imports = [
                 ./profiles/desktop/home.nix
-                nixvim.homeManagerModules.nixvim
-                nvf.homeManagerModules.default
               ];
               home-manager.extraSpecialArgs = {
                 inherit inputs;
@@ -88,5 +76,47 @@
           };
         };
     };
+    laptop = let
+      settings = {
+        profile = "laptop";
+        dotDir = "/home/${vars.name}/.dotfiles";
+        username = vars.name;
+        name = vars.name;
+        personal-email = vars.personal-email;
+        git-email = "85805049+mastermines1@users.noreply.github.com";
+        wm = "hyprland";
+        dm = "tuigreet";
+        theme = "catppuccin-mocha";
+        wallpaper = "";
+        loc = vars.loc;
+        editor = "nvim";
+        monitors = {
+          primary = "HDMI-A-1";
+          secondary = "HDMI-A-2";
+        };
+      };
+    in
+      lib.nixosSystem {
+          modules = [
+            ./profiles/desktop/default.nix
+            stylix.nixosModules.stylix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users."${vars.name}".imports = [
+                ./profiles/laptop/home.nix
+              ];
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                inherit settings;
+              };
+            }
+          ];
+          specialArgs = {
+            inherit inputs;
+            inherit settings;
+          };
+      };
   };
 }

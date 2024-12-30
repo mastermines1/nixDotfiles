@@ -1,6 +1,10 @@
-{pkgs, lib, settings, osConfig, ...}:
-
 {
+  pkgs,
+  lib,
+  settings,
+  osConfig,
+  ...
+}: {
   imports = [
     ./scripts/power-menu.nix
     ./scripts/screenshot-menu.nix
@@ -8,7 +12,7 @@
     ./wayland.nix
     ../app/desktop/waybar
   ];
-  
+
   home.packages = with pkgs; [
     xdg-desktop-portal-hyprland
     wl-clipboard
@@ -26,36 +30,41 @@
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
-
       # Define monitors
-      monitor = if (osConfig.networking.hostName == settings.username + "-destkop") then [
-        "HDMI-A-1,preferred,0x0,1"
-        "HDMI-A-2,preferred,1920x0,1"
-      ] else[];
-      
+      monitor =
+        if (osConfig.networking.hostName == settings.username + "-destkop")
+        then [
+          "HDMI-A-1,preferred,0x0,1"
+          "HDMI-A-2,preferred,1920x0,1"
+        ]
+        else [];
+
       # Define workspaces
-      workspace = if (osConfig.networking.hostName == settings.username + "-desktop") then [
-        "1,monitor:HDMI-A-1"
-        "2,monitor:HDMI-A-1"
-        "3,monitor:HDMI-A-1"
-        "4,monitor:HDMI-A-1"
-        "5,monitor:HDMI-A-2"
-        "6,monitor:HDMI-A-2, default:true"
-        "7,monitor:HDMI-A-1"
-        "8,monitor:HDMI-A-2"
-        "9,monitor:HDMI-A-1"
-        "10,monitor:HDMI-A-2"
-      ] else [];
+      workspace =
+        if (osConfig.networking.hostName == settings.username + "-desktop")
+        then [
+          "1,monitor:HDMI-A-1"
+          "2,monitor:HDMI-A-1"
+          "3,monitor:HDMI-A-1"
+          "4,monitor:HDMI-A-1"
+          "5,monitor:HDMI-A-2"
+          "6,monitor:HDMI-A-2, default:true"
+          "7,monitor:HDMI-A-1"
+          "8,monitor:HDMI-A-2"
+          "9,monitor:HDMI-A-1"
+          "10,monitor:HDMI-A-2"
+        ]
+        else [];
 
       input = {
-        kb_layout="gb";
+        kb_layout = "gb";
         follow_mouse = 1;
         touchpad = {
           natural_scroll = "no";
         };
       };
 
-      general= {
+      general = {
         gaps_in = 3;
         gaps_out = 7;
         border_size = 2;
@@ -67,9 +76,10 @@
           enabled = true;
           size = 5;
           passes = 2;
-          new_optimizations = true;
-          ignore_opacity = true;
+           new_optimizations = true;
+           ignore_opacity = true;
         };
+				shadow.enabled = false;
       };
 
       animations = {
@@ -95,7 +105,7 @@
       exec-once = [
         "waybar"
         "mako"
-				"openrgb --minimized"
+        "openrgb --minimized"
         "sleep 5 && emacs --daemon"
         "[workspace 5 silent] webcord"
         "[workspace 5 silent] whatsapp-for-linux"
@@ -123,7 +133,7 @@
         "workspace 4 silent, title:^(Sign in to Steam)$"
         "monitor 0, title:^(Special Offers)$"
         "workspace 4 silent, title:^(Special Offers)$"
-        "monitor 0 silent, title:^(notificationtoasts_7_desktop)(.*)$"
+        "monitor 0 silent, nofocus, noinitalfocus, title:^(notificationtoasts_7_desktop)(.*)$"
         "workspace 4 silent, class:^(steam_app_)(.*)$"
       ];
 
@@ -142,10 +152,10 @@
         # Screenshots
         ",Print,exec,hyprctl dispatch exec \"[noanim] screenshot-menu\""
 
-        "SUPER,left,movefocus,l"
-        "SUPER,right,movefocus,r"
-        "SUPER,up,movefocus,u"
-        "SUPER,down,movefocus,d"
+        "SUPER,h,movefocus,l"
+        "SUPER,l,movefocus,r"
+        "SUPER,j,movefocus,u"
+        "SUPER,k,movefocus,d"
 
         "SUPER,1,workspace,1"
         "SUPER,2,workspace,2"

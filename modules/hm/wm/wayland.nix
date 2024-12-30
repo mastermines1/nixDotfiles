@@ -1,10 +1,8 @@
-{ pkgs, ...}:
-
-{
-  imports = (map (m: ../app/desktop + m) [
+{pkgs, ...}: {
+  imports = map (m: ../app/desktop + m) [
     /fuzzel
     /mako
-  ]);
+  ];
 
   home.packages = with pkgs; [
     hyprpaper
@@ -30,7 +28,6 @@
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-kde
-      
     ];
   };
 }

@@ -1,6 +1,10 @@
-{ config, lib, pkgs, settings, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  settings,
+  ...
+}: {
   services.gammastep = {
     enable = true;
     temperature.night = 3500;

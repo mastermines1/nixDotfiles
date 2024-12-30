@@ -1,7 +1,6 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
-      python3
-      pystring
+    python3
+    pystring
   ];
 }

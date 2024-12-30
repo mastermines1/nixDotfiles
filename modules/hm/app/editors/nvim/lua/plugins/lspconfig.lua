@@ -1,12 +1,17 @@
 return {
 	"neovim/nvim-lspconfig",
+	dependecies = {
+		"saghen/blink.cmp",
+	},
 	config = function()
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 		local lspconfig = require("lspconfig")
+
+		-- lua_ls for lua
 		lspconfig.lua_ls.setup({
 			capabilites = capabilites,
 		})
-		-- Nixd for Nix	
+		-- Nixd for Nix
 		lspconfig.nixd.setup({
 			capabilites = capabilites,
 			cmd = { "nixd" },
@@ -20,21 +25,26 @@ return {
 					},
 					options = {
 						nixos = {
-							expr = '(builtins.getFlake \"~/.dotfiles\").nixosConfigurations.desktop.options',
-						},
-						home_manager = {
-							expr = '(builtins.getFlake \"~/.dotfiles\").homeConfigurations.desktop.options',
+							expr = string.format(
+								"(builtins.getFlake [%s]).nixosConfigurations.[%s].options",
+								vim.g.dotDir,
+								vim.g.profileName
+							),
 						},
 					},
 				},
 			},
 		})
 
+		lspconfig.sourcekit.setup({
+			capabilities = capabilities,
+		})
+
 		-- Keybinds
 		local keymap = vim.keymap
 
-		keymap.set('n', 'K', vim.lsp.buf.hover, {})
-		keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-		keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
-	end
+		keymap.set("n", "K", vim.lsp.buf.hover, {})
+		keymap.set("n", "gd", vim.lsp.buf.definition, {})
+		keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+	end,
 }

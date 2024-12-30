@@ -1,13 +1,19 @@
-{ config, lib, pkgs, inputs, settings, ...}:
-
 {
-  imports = [
-    ../base/default.nix
-  ] ++
-  (map (m: ../../modules/nix + m) [
-    "/dm/${settings.dm}.nix"
-    "/polkit.nix"
-  ]);
+  config,
+  lib,
+  pkgs,
+  inputs,
+  settings,
+  ...
+}: {
+  imports =
+    [
+      ../base/default.nix
+    ]
+    ++ (map (m: ../../modules/nix + m) [
+      "/dm/${settings.dm}.nix"
+      "/polkit.nix"
+    ]);
 
   networking = {
     networkmanager = {

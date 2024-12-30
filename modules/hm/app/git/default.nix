@@ -1,6 +1,4 @@
-{settings, ...}:
-
-{
+{settings, ...}: {
   programs.git = {
     enable = true;
     userName = "Mastermines1";

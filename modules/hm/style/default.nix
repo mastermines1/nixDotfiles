@@ -1,9 +1,11 @@
-{pkgs, settings, ...}:
-let
+{
+  pkgs,
+  settings,
+  ...
+}: let
   theme = "${pkgs.base16-schemes}/share/themes/${settings.theme}.yaml";
   wallpaper = settings.wallpaper;
-in
-{
+in {
   stylix = {
     enable = true;
     image = pkgs.fetchurl {
@@ -20,7 +22,7 @@ in
     };
     targets = {
       vscode.enable = false;
-			alacritty.enable = false;
+      alacritty.enable = false;
     };
     fonts = {
       # serif = {

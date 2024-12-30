@@ -1,6 +1,10 @@
-{ config, pkgs, settings,... }:
 {
-  imports = [ 
+  config,
+  pkgs,
+  settings,
+  ...
+}: {
+  imports = [
     ../../../lang/plantuml
 
     # Emacs config files:
@@ -8,7 +12,7 @@
     ./init.el.nix
     ./packages.el.nix
   ];
- 
+
   home.packages = with pkgs; [
     ripgrep
     emacs-all-the-icons-fonts
@@ -20,7 +24,7 @@
   services.emacs.enable = true;
 
   home.file.".config/emacs/themes/doom-stylix-theme.el".source = config.lib.stylix.colors {
-      template = builtins.readFile ./themes/doom-stylix-theme.el.mustache;
-      extension = ".el";
+    template = builtins.readFile ./themes/doom-stylix-theme.el.mustache;
+    extension = ".el";
   };
 }

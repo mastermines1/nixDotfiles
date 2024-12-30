@@ -1,15 +1,13 @@
-{...}:
-
-{
-	programs.nixvim = {
-		keymaps = [
-			{
-				action = "NvimTreeToggle";
-				key = "<C-a";
-				options = {
-					silent = true;
-				};
-			}
-		];
-	};
+{...}: {
+  programs.nixvim = {
+    keymaps = [
+      {
+        action = "NvimTreeToggle";
+        key = "<C-a";
+        options = {
+          silent = true;
+        };
+      }
+    ];
+  };
 }
