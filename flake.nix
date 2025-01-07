@@ -75,7 +75,48 @@
             inherit settings;
           };
         };
-    };
+      mac = let
+        settings = {
+          profile = "desktop";
+          dotDir = "/home/${vars.name}/.dotfiles";
+          username = vars.name;
+          name = vars.name;
+          personal-email = vars.personal-email;
+          git-email = "85805049+mastermines1@users.noreply.github.com";
+          wm = "hyprland";
+          dm = "tuigreet";
+          theme = "catppuccin-mocha";
+          wallpaper = "";
+          loc = vars.loc;
+          editor = "nvim";
+          monitors = {
+            primary = "HDMI-A-1";
+            secondary = "HDMI-A-2";
+          };
+        };
+      in
+        lib.nixosSystem {
+          modules = [
+            ./profiles/mac/default.nix
+            stylix.nixosModules.stylix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users."${vars.name}".imports = [
+                ./profiles/desktop/home.nix
+              ];
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                inherit settings;
+              };
+            }
+          ];
+          specialArgs = {
+            inherit inputs;
+            inherit settings;
+          };
+        };
     laptop = let
       settings = {
         profile = "laptop";
@@ -119,4 +160,5 @@
           };
       };
   };
+    };
 }
