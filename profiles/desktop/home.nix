@@ -51,7 +51,7 @@
     prismlauncher
 
     #messages
-    webcord-vencord
+		discord
     whatsapp-for-linux
 
     qbittorrent

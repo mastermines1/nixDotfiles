@@ -7,8 +7,6 @@
 }: {
   imports = [
     ./scripts/power-menu.nix
-    ./scripts/screenshot-menu.nix
-    ./scripts/swaylock-fancy
     ./wayland.nix
     ../app/desktop/waybar
   ];
@@ -140,9 +138,9 @@
       bind = [
         "SUPER,RETURN,exec,alacritty"
         "SUPER,Q,killactive"
-        "SUPER,L,exec,swaylock-fancy"
+        "SUPER,L,exec,${pkgs.swaylock-fancy}"
         "SUPERSHIFT,space,exec,hyprctl --batch \"dispatch togglefloating active; dispatch resizeactive 100 100\""
-        "SUPER,D,exec,fuzzel"
+        "SUPER,D,exec,${pkgs.fuzzel}"
         "SUPER,P,pseudo"
         "SUPER,F,fullscreen"
         "SUPER,M,exec,zen"
@@ -150,7 +148,8 @@
         "SUPERSHIFT,E,exec,power-menu"
 
         # Screenshots
-        ",Print,exec,hyprctl dispatch exec \"[noanim] screenshot-menu\""
+        ",Print,exec,${pkgs.hyprshot} -m region --clipboard-only -z"
+        "SUPER,Print,exec,${pkgs.hyprshot} -m region -z -o ~/Pictures/Screenshots"
 
         "SUPER,h,movefocus,l"
         "SUPER,l,movefocus,r"

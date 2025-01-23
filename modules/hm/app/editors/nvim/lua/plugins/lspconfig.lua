@@ -36,7 +36,8 @@ return {
 			},
 		})
 
-		lspconfig.sourcekit.setup({
+		-- clangd for c/cpp
+		lspconfig.clangd.setup({
 			capabilities = capabilities,
 		})
 

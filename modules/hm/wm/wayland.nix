@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = map (m: ../app/desktop + m) [
-    /fuzzel
     /mako
   ];
 

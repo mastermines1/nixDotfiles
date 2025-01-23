@@ -10,8 +10,9 @@ return {
 				null_ls.builtins.diagnostics.statix,
 				null_ls.builtins.diagnostics.deadnix,
 				null_ls.builtins.diagnostics.cppcheck,
-				null_ls.builtins.formatting.astyle,
-				null_ls.builtins.formatting.uncrustify,
+				null_ls.builtins.formatting.uncrustify.with({
+					extra_args = {"-c","~/.config/nvim/lua/config/uncrustify.cfg"},
+				}),
 			},
 		})
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})

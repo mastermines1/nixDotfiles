@@ -15,7 +15,7 @@
 
       options="$option0\n$option1\n$option2\n$option3"
 
-      chosen="$(echo -e "$options" | fuzzel --lines 4 --dmenu)"
+      chosen="$(echo -e "$options" | ${pkgs.fuzzel} --lines 4 --dmenu)"
       case $chosen in
           $option0)
               systemctl suspend;;

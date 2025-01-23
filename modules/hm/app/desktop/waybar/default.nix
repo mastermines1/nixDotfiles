@@ -17,7 +17,7 @@
     "clock#date" = {
       format = "{:%d/%m/%y}";
       tooltip.enable = true;
-      tooltip.format = "{:A}";
+      tooltip.format = "{:%A}";
     };
     wireplumber = {
       scroll-step = 5;
@@ -84,10 +84,10 @@ in {
         inherit (moduleConfig) wireplumber "clock#time" "custom/music";
       };
 
-      rightBar = {
+      secondaryBar = {
         layer = "top";
         position = "top";
-        output = settings.monitors.secondary;
+        output = "!${settings.monitors.primary}";
         modules-left = [];
         modules-center = ["clock#time"];
         modules-right = ["clock#date"];
