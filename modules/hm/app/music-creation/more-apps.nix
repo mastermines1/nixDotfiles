@@ -1,8 +1,5 @@
-{pkgs, ...}:
-
-{
-	home.pacakes = with pkgs; [
-		audacity
-
-	];
+{pkgs, ...}: {
+  home.pacakes = with pkgs; [
+    audacity
+  ];
 }

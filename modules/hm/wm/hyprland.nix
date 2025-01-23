@@ -74,10 +74,10 @@
           enabled = true;
           size = 5;
           passes = 2;
-           new_optimizations = true;
-           ignore_opacity = true;
+          new_optimizations = true;
+          ignore_opacity = true;
         };
-				shadow.enabled = false;
+        shadow.enabled = false;
       };
 
       animations = {

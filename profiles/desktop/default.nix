@@ -29,11 +29,11 @@
     ];
   };
 
-	virtualisation = {
-		podman.enable = true;
-	};
+  virtualisation = {
+    podman.enable = true;
+  };
 
-	hardware.enableAllFirmware = true;
+  hardware.enableAllFirmware = true;
 
   services = {
     hardware.openrgb = {

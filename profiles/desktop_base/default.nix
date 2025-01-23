@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   inputs,
   settings,
@@ -28,11 +26,17 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
+  services = {
+    printing.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+    gnome.gnome-keyring.enable = true;
+    gvfs.enable = true;
+    devmon.enable = true;
+    udisks2.enable = true;
   };
 
   # Packages
@@ -43,9 +47,5 @@
     inputs.zen-browser.packages."${system}".default
   ];
 
-  services.gnome.gnome-keyring.enable = true;
-  services.gvfs.enable = true;
-  services.devmon.enable = true;
-  services.udisks2.enable = true;
   environment.localBinInPath = true;
 }

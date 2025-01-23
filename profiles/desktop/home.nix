@@ -51,17 +51,17 @@
     prismlauncher
 
     #messages
-		discord
+    discord
     whatsapp-for-linux
 
     qbittorrent
-		distrobox
-		bubblewrap
-		fuse-overlayfs
-		dwarfs
+    distrobox
+    bubblewrap
+    fuse-overlayfs
+    dwarfs
 
-		soulseekqt
-		kid3
+    soulseekqt
+    kid3
 
     gimp
   ];

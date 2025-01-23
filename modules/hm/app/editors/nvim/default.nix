@@ -18,7 +18,7 @@
     astyle
     uncrustify
     gdb
-		clang-tools
+    clang-tools
   ];
 
   programs.neovim = {

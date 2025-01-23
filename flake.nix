@@ -117,27 +117,27 @@
             inherit settings;
           };
         };
-    laptop = let
-      settings = {
-        profile = "laptop";
-        dotDir = "/home/${vars.name}/.dotfiles";
-        username = vars.name;
-        name = vars.name;
-        personal-email = vars.personal-email;
-        git-email = "85805049+mastermines1@users.noreply.github.com";
-        wm = "hyprland";
-        dm = "tuigreet";
-        theme = "catppuccin-mocha";
-        wallpaper = "";
-        loc = vars.loc;
-        editor = "nvim";
-        monitors = {
-          primary = "HDMI-A-1";
-          secondary = "HDMI-A-2";
+      laptop = let
+        settings = {
+          profile = "laptop";
+          dotDir = "/home/${vars.name}/.dotfiles";
+          username = vars.name;
+          name = vars.name;
+          personal-email = vars.personal-email;
+          git-email = "85805049+mastermines1@users.noreply.github.com";
+          wm = "hyprland";
+          dm = "tuigreet";
+          theme = "catppuccin-mocha";
+          wallpaper = "";
+          loc = vars.loc;
+          editor = "nvim";
+          monitors = {
+            primary = "HDMI-A-1";
+            secondary = "HDMI-A-2";
+          };
         };
-      };
-    in
-      lib.nixosSystem {
+      in
+        lib.nixosSystem {
           modules = [
             ./profiles/desktop/default.nix
             stylix.nixosModules.stylix
@@ -158,7 +158,7 @@
             inherit inputs;
             inherit settings;
           };
-      };
-  };
+        };
     };
+  };
 }

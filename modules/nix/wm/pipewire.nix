@@ -2,7 +2,7 @@
   # Enable sound with pipewire.
   #sound.enable = true;
   services.pulseaudio.enable = false;
-	services.pulseaudio.package = pkgs.pulseaudioFull;
+  services.pulseaudio.package = pkgs.pulseaudioFull;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
