@@ -4,7 +4,6 @@
   ...
 }: {
   home.packages = with pkgs; [
-    neovim
     nixd
     lua-language-server
     sourcekit-lsp
@@ -22,6 +21,7 @@
   ];
 
   programs.neovim = {
+		enable = true;
     viAlias = true;
     vimAlias = true;
     defaultEditor = true;

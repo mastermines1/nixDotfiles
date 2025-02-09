@@ -1,6 +1,22 @@
 return {
-	{ "echasnovski/mini.indentscope", version = false },
-	{ "echasnovski/mini.trailspace",  version = false },
-	{ "echasnovski/mini.cursorword",  version = false },
-	{ "echasnovski/mini.clue",        version = false },
+	{
+		"echasnovski/mini.indentscope",
+		version = false,
+		config = function() end,
+	},
+	{
+		"echasnovski/mini.trailspace",
+		version = false,
+		config = function() end,
+	},
+	{
+		"echasnovski/mini.cursorword",
+		version = false,
+		config = function() end,
+	},
+	{
+		"echasnovski/mini.clue",
+		version = false,
+		config = function() end,
+	},
 }

@@ -18,6 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs = inputs @ {

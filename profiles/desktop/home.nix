@@ -18,8 +18,7 @@
     ]
     ++ (map (m: ../../modules/hm + m) [
       /app/editors/${settings.editor}
-      /app/video/mpv.nix
-      /app/programming/vscode
+      /app/mpv/mpv.nix
       /app/music-creation/reaper
       /wm/${settings.wm}.nix
       /style

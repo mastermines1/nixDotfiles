@@ -14,10 +14,8 @@
   home.packages = with pkgs; [
     xdg-desktop-portal-hyprland
     wl-clipboard
-    hyprland-protocols
-    grim
-    grimblast
     slurp
+		hyprshot
   ];
 
   services.copyq.enable = true;
@@ -105,8 +103,8 @@
         "mako"
         "openrgb --minimized"
         "sleep 5 && emacs --daemon"
-        "[workspace 5 silent] webcord"
-        "[workspace 5 silent] whatsapp-for-linux"
+        "[workspace 5 silent] discord"
+        "[workspace 5 silent] wasistlos"
         "[workspace 2 silent] zen"
         "[workspace 4 silent] steam -console"
         "[workspace 6 silent] spotify"
@@ -114,19 +112,19 @@
       ];
 
       windowrule = [
-        "monitor 1, WebCord"
-        "workspace 5, WebCord"
-        "monitor 1, whatsapp"
-        "workspace 5, whatsapp"
-        "monitor 0, zen"
-        "workspace 2, zen"
-        "monitor 0, Alacritty"
-        "workspace 1, Alacritty"
-        "monitor 1, Spotify"
-        "workspace 6, Spotify"
+        # "monitor 1, discord"
+        # "workspace 5, discord"
+        # "monitor 1, wasistlos"
+        # "workspace 5, wasistlos"
+        # "monitor 0, zen"
+        # "workspace 2, zen"
+        # "monitor 0, Alacritty"
+        # "workspace 1, Alacritty"
+        # "monitor 1, Spotify"
+        # "workspace 6, Spotify"
 
-        "monitor 0, steam"
-        "workspace 4 silent, title:^(Steam)$"
+        # "monitor 0, steam"
+        # "workspace 4 silent, steam"
         "monitor 0, title:^(Sign in to Steam)$"
         "workspace 4 silent, title:^(Sign in to Steam)$"
         "monitor 0, title:^(Special Offers)$"
@@ -140,7 +138,7 @@
         "SUPER,Q,killactive"
         "SUPER,L,exec,${pkgs.swaylock-fancy}"
         "SUPERSHIFT,space,exec,hyprctl --batch \"dispatch togglefloating active; dispatch resizeactive 100 100\""
-        "SUPER,D,exec,${pkgs.fuzzel}"
+        "SUPER,D,exec,fuzzel"
         "SUPER,P,pseudo"
         "SUPER,F,fullscreen"
         "SUPER,M,exec,zen"
@@ -148,8 +146,8 @@
         "SUPERSHIFT,E,exec,power-menu"
 
         # Screenshots
-        ",Print,exec,${pkgs.hyprshot} -m region --clipboard-only -z"
-        "SUPER,Print,exec,${pkgs.hyprshot} -m region -z -o ~/Pictures/Screenshots"
+        ",Print,exec,hyprshot -m region --clipboard-only -z"
+        "SUPER,Print,exec,hyprshot -m region -z -o ~/Pictures/Screenshots"
 
         "SUPER,h,movefocus,l"
         "SUPER,l,movefocus,r"

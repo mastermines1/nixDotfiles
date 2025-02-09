@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = map (m: ../app/desktop + m) [
     /mako
+		/fuzzel
   ];
 
   home.packages = with pkgs; [

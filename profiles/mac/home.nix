@@ -18,7 +18,7 @@
     ]
     ++ (map (m: ../../modules/hm + m) [
       /app/editors/${settings.editor}
-      /app/video/mpv.nix
+      /app/mpv/mpv.nix
       /app/programming/vscode
       /app/music-creation/reaper
       /wm/${settings.wm}.nix
@@ -51,7 +51,7 @@
     prismlauncher
 
     #messages
-    webcord-vencord
+  	discord  
     whatsapp-for-linux
 
     qbittorrent

@@ -7,7 +7,7 @@ return {
 		dependencies = "rafamadriz/friendly-snippets",
 
 		-- If you use nix, you can build from source using latest nightly rust with:
-		build = 'nix run .#build-plugin',
+		build = 'nix run .#build-plugin --accept-flake-config',
 
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config

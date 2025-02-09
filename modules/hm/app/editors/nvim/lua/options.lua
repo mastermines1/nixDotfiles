@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
+vim.keymap.set("n", "<C-p>", '"*p')
+-- vim.keymap.set("n", "<C-P>", '"*P')
 -- vim.o.clipboard = "unnamedplus"
 
 vim.o.hlsearch = false
