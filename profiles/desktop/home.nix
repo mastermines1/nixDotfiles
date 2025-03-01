@@ -63,5 +63,7 @@
     kid3
 
     gimp
+
+		dooit
   ];
 }

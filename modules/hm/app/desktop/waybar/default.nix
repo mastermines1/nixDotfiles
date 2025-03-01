@@ -22,7 +22,7 @@
     wireplumber = {
       scroll-step = 5;
       on-click = "pavucontrol";
-      on-click-right = "amixer set Master toggle";
+      on-click-right = "${pkgs.alsa-utils}/bin amixer set Master toggle";
     };
     network = {
       interval = 1;
@@ -44,9 +44,9 @@
       tooltip = true;
       exec = "cavay -b 16";
       return-type = "json";
-      on-click = "${pkgs.spotify-cli-linux}/bin/spotifycli --playpause";
-      on-scroll-up = "${pkgs.spotify-cli-linux}/bin/spotifycli --prev";
-      on-scroll-down = "${pkgs.spotify-cli-linux}/bin/spotifycli --next";
+      on-click = "playerctl -p mpv play-pause";
+      on-scroll-up = "playerctl -p mpv next";
+      on-scroll-down = "playerctl -p mpv previous";
       #on-click-right = "g4music";
       max-length = 35;
     };
@@ -69,6 +69,7 @@ in {
   imports = [
     ./scripts/cavay.nix
   ];
+
 
   programs.waybar = {
     enable = true;

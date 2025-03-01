@@ -23,6 +23,9 @@
 		passthru.scriptName = "coverart.lua";
   };
 in {
+	home.packages = with pkgs; [
+		mpris-scrobbler
+	];
   programs.mpv = {
     enable = true;
     scripts = with pkgs.mpvScripts; [
@@ -34,6 +37,7 @@ in {
       mpv-playlistmanager
       webtorrent-mpv-hook
       coverart
+			mpris
     ];
   };
 }

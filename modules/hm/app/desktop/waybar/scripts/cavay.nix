@@ -7,8 +7,9 @@
   home.packages = with pkgs; [
     playerctl
     cava
+		jq
     (pkgs.writeScriptBin "cavay" ''
-            #!/bin/bash
+            #!/usr/bin/env bash
 
       # Nuke all internal spawns when script dies
       trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM
@@ -92,7 +93,7 @@
       clean_create_pipe $playerctl_waybar_pipe
 
       # playerctl output into playerctl_waybar_pipe
-      playerctl --player=spotify metadata --format '{"text": "{{title}} - {{artist}}", "tooltip": "{{markup_escape(title)}} - {{markup_escape(artist)}} ", "alt": "{{status}}", "class": "{{status}}"}' -F >$playerctl_waybar_pipe &
+      playerctl --player=mpv metadata --format '{"text": "{{title}} - {{artist}}", "tooltip": "{{markup_escape(title)}} - {{markup_escape(artist)}} ", "alt": "{{status}}", "class": "{{status}}"}' -F >$playerctl_waybar_pipe &
 
 
 

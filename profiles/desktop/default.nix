@@ -45,7 +45,8 @@
       enable = true;
       package = pkgs.mullvad-vpn;
     };
-  };
+
+	};
 
   programs = {
     steam.enable = true;

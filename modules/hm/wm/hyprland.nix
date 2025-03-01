@@ -112,10 +112,10 @@
       ];
 
       windowrule = [
-        # "monitor 1, discord"
-        # "workspace 5, discord"
-        # "monitor 1, wasistlos"
-        # "workspace 5, wasistlos"
+        "monitor 1, discord"
+        "workspace 5, discord"
+        "monitor 1, wasistlos"
+        "workspace 5, wasistlos"
         # "monitor 0, zen"
         # "workspace 2, zen"
         # "monitor 0, Alacritty"
@@ -123,13 +123,13 @@
         # "monitor 1, Spotify"
         # "workspace 6, Spotify"
 
-        # "monitor 0, steam"
-        # "workspace 4 silent, steam"
+        "monitor 0, steam"
+        "workspace 4 silent, steam"
         "monitor 0, title:^(Sign in to Steam)$"
         "workspace 4 silent, title:^(Sign in to Steam)$"
         "monitor 0, title:^(Special Offers)$"
         "workspace 4 silent, title:^(Special Offers)$"
-        "monitor 0 silent, nofocus, noinitalfocus, title:^(notificationtoasts_7_desktop)(.*)$"
+        "monitor 0 silent, focus:0 nofocus, noinitalfocus, title:^(notificationtoasts_7_desktop)(.*)$"
         "workspace 4 silent, class:^(steam_app_)(.*)$"
       ];
 
