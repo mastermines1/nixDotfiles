@@ -30,8 +30,8 @@
       monitor =
         if (osConfig.networking.hostName == settings.username + "-destkop")
         then [
-          "HDMI-A-1,preferred,0x0,1"
-          "HDMI-A-2,preferred,1920x0,1"
+          "desc:WOR TERRA 2447W W939LSD05906,preferred,0x0,1"
+          "desc:HannStar Display Corp HE225HPB 1234567890123,preferred,1920x0,1"
         ]
         else [];
 
@@ -101,13 +101,14 @@
       exec-once = [
         "waybar"
         "mako"
+				"mpris-notifier"
         "openrgb --minimized"
         "sleep 5 && emacs --daemon"
         "[workspace 5 silent] discord"
         "[workspace 5 silent] wasistlos"
         "[workspace 2 silent] zen"
         "[workspace 4 silent] steam -console"
-        "[workspace 6 silent] spotify"
+        "[workspace 6 silent] alacritty -T inori -e inori"
         "[workspace 1 silent] alacritty"
       ];
 

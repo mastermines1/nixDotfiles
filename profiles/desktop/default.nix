@@ -61,7 +61,7 @@
     fsType = "ext4";
   };
 
-  nixpkgs.config.allowUnfree = true;
+	nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "23.11";
 }
