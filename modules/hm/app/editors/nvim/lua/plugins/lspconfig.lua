@@ -41,6 +41,8 @@ return {
 			capabilities = capabilities,
 		})
 
+		require("lspconfig").ts_ls.setup({})
+
 		-- Keybinds
 		local keymap = vim.keymap
 

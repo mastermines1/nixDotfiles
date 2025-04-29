@@ -18,7 +18,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    hyprpanel = {
+			url = "github:Jas-SinghFSU/HyprPanel";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
   };
 
   outputs = inputs @ {
@@ -26,6 +29,7 @@
     nixpkgs,
     home-manager,
     stylix,
+    hyprpanel,
     secrets,
     ...
   }: let
@@ -43,15 +47,12 @@
           personal-email = vars.personal-email;
           git-email = "85805049+mastermines1@users.noreply.github.com";
           wm = "hyprland";
+          bar = "waybar";
           dm = "tuigreet";
           theme = "catppuccin-mocha";
           wallpaper = "";
           loc = vars.loc;
           editor = "nvim";
-          monitors = {
-            primary = "HDMI-A-1";
-            secondary = "HDMI-A-2";
-          };
         };
       in
         lib.nixosSystem {
@@ -85,15 +86,12 @@
           personal-email = vars.personal-email;
           git-email = "85805049+mastermines1@users.noreply.github.com";
           wm = "hyprland";
+          bar = "waybar";
           dm = "tuigreet";
           theme = "catppuccin-mocha";
           wallpaper = "";
           loc = vars.loc;
           editor = "nvim";
-          monitors = {
-            primary = "HDMI-A-1";
-            secondary = "HDMI-A-2";
-          };
         };
       in
         lib.nixosSystem {
@@ -127,20 +125,17 @@
           personal-email = vars.personal-email;
           git-email = "85805049+mastermines1@users.noreply.github.com";
           wm = "hyprland";
+          bar = "waybar";
           dm = "tuigreet";
           theme = "catppuccin-mocha";
           wallpaper = "";
           loc = vars.loc;
           editor = "nvim";
-          monitors = {
-            primary = "HDMI-A-1";
-            secondary = "HDMI-A-2";
-          };
         };
       in
         lib.nixosSystem {
           modules = [
-            ./profiles/desktop/default.nix
+            ./profiles/laptop/default.nix
             stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             {
