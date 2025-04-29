@@ -49,16 +49,24 @@
       format = "{icon}{}";
       format-icons = {
         Paused = "";
-        Stopped = "&#x202d;ﭥ ";
+        Stopped = "";
       };
       escape = true;
       tooltip = true;
-      exec = "cavay -b 16";
+      exec = "cavay -b 16 -p mpd";
       return-type = "json";
-      on-click = "playerctl -p mpv play-pause";
-      on-scroll-up = "playerctl -p mpv next";
-      on-scroll-down = "playerctl -p mpv previous";
-      max-length = 35;
+      on-click = "playerctl -p mpd play-pause";
+      on-scroll-up = "playerctl -p mpd next";
+      on-scroll-down = "playerctl -p mpd previous";
+      on-click-right = ''
+
+#!/usr/bin/env bash
+if [ $(hyprctl clients -j | jq 'map(select(.title == "inori")) | length > 0') = "true" ]; then
+	pkill inori
+else
+	hyprctl dispatch exec "[workspace 6 silent; noinitialfocus] alacritty -T inori -e inori"
+fi
+			'';
     };
 
     "hyprland/workspaces" = {

@@ -25,21 +25,21 @@ in {
       alacritty.enable = false;
     };
     fonts = {
-      # serif = {
-      #   name = "Cantarell";
-      #   package = pkgs.cantarell-fonts;
-      # };
-      #
-      # sansSerif = {
-      #   name = "Cantarell";
-      #   package = pkgs.cantarell-fonts;
-      # };
-      #
-      # monospace = {
-      #   name = "Fira Code";
-      #   package = pkgs.fira-code;
-      # };
-      #
+      serif = {
+        name = "Cantarell";
+        package = pkgs.cantarell-fonts;
+      };
+
+      sansSerif = {
+        name = "Cantarell";
+        package = pkgs.cantarell-fonts;
+      };
+
+      monospace = {
+        name = "Fira Code";
+        package = pkgs.fira-code;
+      };
+
       sizes = {
         applications = 11;
         desktop = 11;
@@ -48,6 +48,7 @@ in {
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
+			size = 32;
     };
   };
 }

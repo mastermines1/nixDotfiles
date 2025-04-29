@@ -25,6 +25,7 @@
 in {
 	home.packages = with pkgs; [
 		mpris-scrobbler
+		mpris-notifier
 	];
   programs.mpv = {
     enable = true;

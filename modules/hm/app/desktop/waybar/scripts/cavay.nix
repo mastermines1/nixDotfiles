@@ -19,10 +19,11 @@
       EQUILIZER=1;
 
       # Get script options
-      while getopts 'b:f:m:eh' flag; do
+      while getopts 'b:f:m:p:eh' flag; do
           case "''${flag}" in
               b) BARS="''${OPTARG}" ;;
               f) FRAMERATE="''${OPTARG}" ;;
+							p) PLAYER="''${OPTARG}" ;;
               e) EQUILIZER=0 ;;
               h)
                   echo "caway usage: caway [ options ... ]"
@@ -93,8 +94,11 @@
       clean_create_pipe $playerctl_waybar_pipe
 
       # playerctl output into playerctl_waybar_pipe
-      playerctl --player=mpv metadata --format '{"text": "{{title}} - {{artist}}", "tooltip": "{{markup_escape(title)}} - {{markup_escape(artist)}} ", "alt": "{{status}}", "class": "{{status}}"}' -F >$playerctl_waybar_pipe &
-
+			if [ -v PLAYER ]; then
+      	playerctl --player=$PLAYER metadata --format '{"text": "{{title}} - {{artist}}", "tooltip": "{{markup_escape(title)}} - {{markup_escape(artist)}} ", "alt": "{{status}}", "class": "{{status}}"}' -F >$playerctl_waybar_pipe &
+			else
+      	playerctl metadata --format '{"text": "{{title}} - {{artist}}", "tooltip": "{{markup_escape(title)}} - {{markup_escape(artist)}} ", "alt": "{{status}}", "class": "{{status}}"}' -F >$playerctl_waybar_pipe &
+			fi
 
 
 
