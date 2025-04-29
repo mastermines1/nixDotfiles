@@ -289,7 +289,9 @@
     "hyprpanel": {
       "inputs": {
         "ags": "ags",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1739606511,
@@ -307,22 +309,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1736344531,
-        "narHash": "sha256-8YVQ9ZbSfuUk2bUf2KRj60NRraLPKPS0Q4QFTbc+c2c=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "bffc22eb12172e6db3c5dde9e3e5628f8e3e7912",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1739446958,
         "narHash": "sha256-+/bYK3DbPxMIvSL4zArkMX0LQvS7rzBKXnDXLfKyRVc=",
         "owner": "NixOS",
@@ -336,7 +322,7 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1736798957,
         "narHash": "sha256-qwpCtZhSsSNQtK4xYGzMiyEDhkNzOCz/Vfu4oL2ETsQ=",
@@ -356,7 +342,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "hyprpanel": "hyprpanel",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "secrets": "secrets",
         "stylix": "stylix",
         "zen-browser": "zen-browser"
@@ -389,7 +375,7 @@
         "git-hooks": "git-hooks",
         "gnome-shell": "gnome-shell",
         "home-manager": "home-manager_2",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "systems": "systems",
         "tinted-foot": "tinted-foot",
         "tinted-kitty": "tinted-kitty",

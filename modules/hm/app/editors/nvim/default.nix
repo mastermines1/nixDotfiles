@@ -18,6 +18,7 @@
     uncrustify
     gdb
     clang-tools
+		typescript-language-server
   ];
 
   programs.neovim = {

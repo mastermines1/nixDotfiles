@@ -1,10 +1,9 @@
+{ inputs, pkgs, ... }:
 {
-  inputs,
-  pkgs,
-  settings,
-  ...
-}: {
-  home.packages = [
+	home.packages = [
     inputs.hyprpanel.packages.${pkgs.system}.default
-  ];
+	];
+
+	home.file.".config/hyprpanel/config.json".source = ./config.json;
 }
+

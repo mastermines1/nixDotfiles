@@ -2,20 +2,20 @@
   pkgs,
   lib,
   settings,
-  osConfig,
   ...
 }: {
   imports = [
     ./scripts/power-menu.nix
     ./wayland.nix
-    ../app/desktop/waybar
+    ../app/desktop/${settings.bar}
   ];
 
   home.packages = with pkgs; [
     xdg-desktop-portal-hyprland
     wl-clipboard
     slurp
-		hyprshot
+    hyprshot
+    kitty
   ];
 
   services.copyq.enable = true;
@@ -28,16 +28,20 @@
     settings = {
       # Define monitors
       monitor =
-        if (osConfig.networking.hostName == settings.username + "-destkop")
+        if (settings.profile == "desktop")
         then [
           "HDMI-A-1,preferred,0x0,1"
           "HDMI-A-2,preferred,1920x0,1"
+        ]
+        else if (settings.profile == "laptop")
+        then [
+          "eDP-1,preferred,0x0,1"
         ]
         else [];
 
       # Define workspaces
       workspace =
-        if (osConfig.networking.hostName == settings.username + "-desktop")
+        if (settings.profile == "desktop")
         then [
           "1,monitor:HDMI-A-1"
           "2,monitor:HDMI-A-1"
@@ -50,13 +54,26 @@
           "9,monitor:HDMI-A-1"
           "10,monitor:HDMI-A-2"
         ]
+        else if (settings.profile == "laptop")
+        then [
+          "1,monitor:eDP-1, defualt:true"
+          "2,monitor:eDP-1"
+          "3,monitor:eDP-1"
+          "4,monitor:eDP-1"
+          "5,monitor:eDP-1"
+          "6,monitor:eDP-1"
+          "7,monitor:eDP-1"
+          "8,monitor:eDP-1"
+          "9,monitor:eDP-1"
+          "10,monitor:eDP-1"
+        ]
         else [];
 
       input = {
         kb_layout = "gb";
         follow_mouse = 1;
         touchpad = {
-          natural_scroll = "no";
+          natural_scroll = "yes";
         };
       };
 
@@ -99,10 +116,9 @@
       };
 
       exec-once = [
-        "waybar"
+        "${settings.bar}"
         "mako"
         "openrgb --minimized"
-        "sleep 5 && emacs --daemon"
         "[workspace 5 silent] discord"
         "[workspace 5 silent] wasistlos"
         "[workspace 2 silent] zen"

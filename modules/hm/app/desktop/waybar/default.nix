@@ -22,7 +22,7 @@
     wireplumber = {
       scroll-step = 5;
       on-click = "pavucontrol";
-      on-click-right = "${pkgs.alsa-utils}/bin amixer set Master toggle";
+      on-click-right = "amixer set Master toggle";
     };
     network = {
       interval = 1;
@@ -33,6 +33,17 @@
       tooltip-format-wifi = "{essid} ({signalStrength}%) on {ifname}";
       tooltip-format-disconnected = "Disconnected";
     };
+
+		battery = {
+			bat = "BAT1";
+			interval = 60;
+			states = {
+				warning = 30;
+				critial = 10;
+			};
+			format = "{capacity}%";
+			format-icons = ["" "" "" "" ""];
+		};
 
     "custom/music" = {
       format = "{icon}{}";
@@ -47,7 +58,6 @@
       on-click = "playerctl -p mpv play-pause";
       on-scroll-up = "playerctl -p mpv next";
       on-scroll-down = "playerctl -p mpv previous";
-      #on-click-right = "g4music";
       max-length = 35;
     };
 
@@ -70,15 +80,19 @@ in {
     ./scripts/cavay.nix
   ];
 
+	home.packages = with pkgs; [
+		alsa-utils
+	];
 
   programs.waybar = {
     enable = true;
-    settings = {
+    settings =
+			if (settings.profile == "desktop") then {
       leftBar = {
         height = 15;
         layer = "top";
         position = "top";
-        output = settings.monitors.primary;
+        output = "HMDI-A-1";
         modules-left = ["tray"];
         modules-center = ["custom/music"];
         modules-right = ["wireplumber" "clock#time"];
@@ -88,13 +102,24 @@ in {
       secondaryBar = {
         layer = "top";
         position = "top";
-        output = "!${settings.monitors.primary}";
+        output = "HMDI-A-2";
         modules-left = [];
         modules-center = ["clock#time"];
         modules-right = ["clock#date"];
         inherit (moduleConfig) "clock#time" "clock#date";
       };
-    };
+    }else if (settings.profile == "laptop") then {
+      mainBar = {
+        height = 15;
+        layer = "top";
+        position = "top";
+        output = "eDP-1";
+        modules-left = ["tray"];
+        modules-center = ["custom/music"];
+        modules-right = ["network" "battery" "wireplumber" "clock#time"];
+        inherit (moduleConfig) network battery wireplumber "clock#time" "custom/music";
+      };
+	}else {};
     style =
       ''
         * {

@@ -11,7 +11,7 @@ return {
 		local keymap = vim.keymap
 
 		keymap.set("n", "<C-n>", ":Neotree float<CR>")
-
+		keymap.set("n", "<A-C-n", ":Neotree left<CR>")
 
 		require("neo-tree").setup({
 			close_if_last_window = true,
