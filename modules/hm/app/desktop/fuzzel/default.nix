@@ -4,5 +4,12 @@
   pkgs,
   ...
 }: {
-  programs.fuzzel.enable = true;
+  programs.fuzzel = {
+  enable = true;
+	settings = {
+		main = {
+		width = 60;
+		};
+	};
+	};
 }

@@ -6,7 +6,7 @@
   settings,
   ...
 }: let
-  theme = "${pkgs.base16-schemes}/share/themes/${settings.theme}.yaml";
+  theme = ../../../style/theme/cool.yaml;
 in {
   stylix = {
     enable = true;

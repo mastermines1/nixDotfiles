@@ -3,7 +3,7 @@
   settings,
   ...
 }: let
-  theme = "${pkgs.base16-schemes}/share/themes/${settings.theme}.yaml";
+  theme = ../../../style/theme/cool.yaml;
   wallpaper = settings.wallpaper;
 in {
   stylix = {
@@ -17,12 +17,12 @@ in {
     polarity = "dark";
     opacity = {
       applications = 0.8;
-      terminal = 0.75;
+      terminal = 1.0;
       popups = 0.75;
     };
     targets = {
-      vscode.enable = false;
-      alacritty.enable = false;
+      neovim.enable = false;
+      tmux.enable = false;
     };
     fonts = {
       serif = {

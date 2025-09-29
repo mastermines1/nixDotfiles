@@ -34,10 +34,6 @@
     options = "--delete-older-than 10d";
   };
 
-  environment.shells = with pkgs; [zsh];
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
-
   # Bootloader.
   boot.loader = {
     systemd-boot = {

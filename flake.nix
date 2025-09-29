@@ -18,10 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
-    hyprpanel = {
-			url = "github:Jas-SinghFSU/HyprPanel";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -29,7 +30,7 @@
     nixpkgs,
     home-manager,
     stylix,
-    hyprpanel,
+    neovim-nightly-overlay,
     secrets,
     ...
   }: let

@@ -10,7 +10,7 @@
     ]
     ++ (map (m: ../../modules/hm + m) [
       /app/shell/shell.nix
-      /app/shell/alacritty.nix
+      /app/shell/kitty.nix
       /app/git
     ]);
 
