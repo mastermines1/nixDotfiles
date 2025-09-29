@@ -64,7 +64,7 @@
 if [ $(hyprctl clients -j | jq 'map(select(.title == "inori")) | length > 0') = "true" ]; then
 	pkill inori
 else
-	hyprctl dispatch exec "[workspace 6 silent; noinitialfocus] alacritty -T inori -e inori"
+	hyprctl dispatch exec "[workspace 6 silent ] alacritty -T inori -e inori"
 fi
 			'';
     };
@@ -100,7 +100,7 @@ in {
         height = 15;
         layer = "top";
         position = "top";
-        output = "HMDI-A-1";
+        output = "HDMI-A-1";
         modules-left = ["tray"];
         modules-center = ["custom/music"];
         modules-right = ["wireplumber" "clock#time"];
@@ -110,7 +110,7 @@ in {
       secondaryBar = {
         layer = "top";
         position = "top";
-        output = "HMDI-A-2";
+        output = "HDMI-A-2";
         modules-left = [];
         modules-center = ["clock#time"];
         modules-right = ["clock#date"];

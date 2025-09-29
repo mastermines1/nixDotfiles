@@ -15,7 +15,6 @@
     wl-clipboard
     slurp
     hyprshot
-    kitty
   ];
 
   services.copyq.enable = true;
@@ -87,7 +86,7 @@
       decoration = {
         rounding = 8;
         blur = {
-          enabled = true;
+          enabled = false;
           size = 5;
           passes = 2;
           new_optimizations = true;
@@ -125,8 +124,8 @@
         "[workspace 5 silent] wasistlos"
         "[workspace 2 silent] zen"
         "[workspace 4 silent] steam -console"
-        "[workspace 6 silent] alacritty -T inori -e inori"
-        "[workspace 1 silent] alacritty"
+        "[workspace 6 silent] kitty -T inori -e inori"
+        "[workspace 1 silent] kitty"
       ];
 
       windowrule = [
@@ -134,6 +133,10 @@
         "workspace 5, class:discord"
         "monitor 1, class:wasistlos"
         "workspace 5, class:wasistlos"
+        "monitor 1, class:(discord)"
+        "workspace 5, class:(discord)"
+        "monitor 1, class:(wasistlos)"
+        "workspace 5, class:(wasistlos)"
         # "monitor 0, zen"
         # "workspace 2, zen"
         # "monitor 0, Alacritty"
@@ -143,6 +146,8 @@
 
         "monitor 0, class:steam"
         "workspace 4 silent, class:steam"
+        "monitor 0, class:(steam)"
+        "workspace 4 silent, class:(steam)"
         "monitor 0, title:^(Sign in to Steam)$"
         "workspace 4 silent, title:^(Sign in to Steam)$"
         "monitor 0, title:^(Special Offers)$"
@@ -152,7 +157,7 @@
       ];
 
       bind = [
-        "SUPER,RETURN,exec,alacritty"
+        "SUPER,RETURN,exec,kitty"
         "SUPER,Q,killactive"
         "SUPER,L,exec,${pkgs.swaylock-fancy}"
         "SUPERSHIFT,space,exec,hyprctl --batch \"dispatch togglefloating active; dispatch resizeactive 100 100\""

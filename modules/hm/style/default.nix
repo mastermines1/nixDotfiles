@@ -2,8 +2,8 @@
   pkgs,
   ...
 }: let
-  theme = ../../../style/themes/carburator/regular.yaml;
-	wallpaper = ../../../style/image/city-skyline-at-night-pixel-art-3euanvahlpictx46.jpg;
+  theme = ../../../style/theme/cool.yaml;
+  wallpaper = settings.wallpaper;
 in {
   stylix = {
     enable = true;
@@ -12,10 +12,12 @@ in {
     polarity = "dark";
     opacity = {
       applications = 0.8;
-      terminal = 0.75;
+      terminal = 1.0;
       popups = 0.75;
     };
     targets = {
+      neovim.enable = false;
+      tmux.enable = false;
     };
     fonts = {
       serif = {

@@ -43,7 +43,6 @@
     # spotify
 
     #WINE
-    wine
     bottles
 
     #games
@@ -60,11 +59,21 @@
     fuse-overlayfs
     dwarfs
 
-    soulseekqt
+    nicotine-plus
     kid3
 
     gimp
 
 		dooit
+
+		networkmanagerapplet
+
+    wineWowPackages.stagingFull  # 32-bit and 64-bit Wine support
+    winetricks
+    dxvk
+    libpulseaudio
+    vulkan-tools
+    mesa
+
   ];
 }

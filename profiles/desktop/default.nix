@@ -10,23 +10,33 @@
       ../desktop_base
     ]
     ++ (map (m: ../../modules/nix + m) [
-      #    "/gpu/amd-rx570.nix"
+         "/gpu/amd-rx570.nix"
       "/wm/${settings.wm}.nix"
       "/style"
     ]);
 
   users.users.${settings.name} = {
     isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel" "dialout" "audio"];
+    extraGroups = ["kvm" "networkmanager" "wheel" "dialout" "audio" "adbusers"];
+		shell = pkgs.fish;
+		ignoreShellProgramCheck = true;
   };
+
+programs.virt-manager.enable = true;
+
+users.groups.libvirtd.members = ["${settings.name}"];
+
+virtualisation.libvirtd.enable = true;
+
+virtualisation.spiceUSBRedirection.enable = true;
 
   networking = {
     hostName = settings.username + "-desktop";
     firewall = {
     };
-    nameservers = [
-      "8.8.8.8"
-    ];
+    # nameservers = [
+    #   "8.8.8.8"
+    # ];
   };
 
   virtualisation = {
@@ -45,6 +55,8 @@
       enable = true;
       package = pkgs.mullvad-vpn;
     };
+    udev.packages = [ pkgs.android-udev-rules];
+		resolved.enable = true;
 
 	};
 
@@ -54,6 +66,7 @@
       enable = true;
       flake = settings.dotDir;
     };
+    adb.enable = true;
   };
 
   fileSystems."/run/mount/HHD" = {
