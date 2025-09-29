@@ -10,8 +10,8 @@
       ../laptop_base
     ]
     ++ (map (m: ../../modules/nix + m) [
-      "/wm/${settings.wm}.nix"
-      "/style"
+      # /wm/${settings.wm}.nix
+      /style
     ]);
   #tets
   users.users.${settings.name} = {
@@ -35,6 +35,7 @@
   hardware.enableAllFirmware = true;
 
   services = {
+		resolved.enable = true;
     hardware.openrgb = {
       enable = true;
       package = pkgs.openrgb-with-all-plugins;
@@ -45,13 +46,6 @@
       package = pkgs.mullvad-vpn;
     };
 
-    fprintd = {
-      enable = true;
-      tod = {
-        enable = true;
-        driver = pkgs.libfprint-2-tod1-vfs0090;
-      };
-    };
   };
 
   programs = {

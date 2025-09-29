@@ -73,7 +73,8 @@
         kb_layout = "gb";
         follow_mouse = 1;
         touchpad = {
-          natural_scroll = "yes";
+          natural_scroll = true;
+          disable_while_typing = false;
         };
       };
 
@@ -118,7 +119,7 @@
       exec-once = [
         "${settings.bar}"
         "mako"
-				"mpris-notifier"
+        "mpris-notifier"
         "openrgb --minimized"
         "[workspace 5 silent] discord"
         "[workspace 5 silent] wasistlos"
@@ -129,10 +130,10 @@
       ];
 
       windowrule = [
-        "monitor 1, discord"
-        "workspace 5, discord"
-        "monitor 1, wasistlos"
-        "workspace 5, wasistlos"
+        "monitor 1, class:discord"
+        "workspace 5, class:discord"
+        "monitor 1, class:wasistlos"
+        "workspace 5, class:wasistlos"
         # "monitor 0, zen"
         # "workspace 2, zen"
         # "monitor 0, Alacritty"
@@ -140,8 +141,8 @@
         # "monitor 1, Spotify"
         # "workspace 6, Spotify"
 
-        "monitor 0, steam"
-        "workspace 4 silent, steam"
+        "monitor 0, class:steam"
+        "workspace 4 silent, class:steam"
         "monitor 0, title:^(Sign in to Steam)$"
         "workspace 4 silent, title:^(Sign in to Steam)$"
         "monitor 0, title:^(Special Offers)$"

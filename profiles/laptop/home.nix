@@ -18,8 +18,8 @@
     ]
     ++ (map (m: ../../modules/hm + m) [
       /app/editors/${settings.editor}
-      /app/mpv/mpv.nix
-      /app/music-creation/reaper
+      /app/media/mpv.nix
+      # /app/music-creation/reaper
       /wm/${settings.wm}.nix
       /style
 
@@ -36,7 +36,9 @@
     gnome-disk-utility
     file-roller
 
-    libreoffice-fresh
+    # libreoffice-fresh
+
+		 gnome-network-displays
 
     yt-dlp
     spotify
@@ -46,8 +48,8 @@
     bottles
 
     #games
-    legendary-gl
-    prismlauncher
+    # legendary-gl
+    # prismlauncher
 
     #messages
     discord
@@ -59,7 +61,7 @@
     fuse-overlayfs
     dwarfs
 
-    soulseekqt
+    nicotine-plus
     kid3
 
     gimp
