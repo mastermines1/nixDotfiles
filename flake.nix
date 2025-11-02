@@ -50,7 +50,7 @@
           bar = "waybar";
           dm = "tuigreet";
           theme = "catppuccin-mocha";
-          wallpaper = "";
+          wallpaper = "/tree.jpg";
           loc = vars.loc;
           editor = "nvim";
         };
@@ -79,7 +79,7 @@
         };
       mac = let
         settings = {
-          profile = "desktop";
+          profile = "mac";
           dotDir = "/home/${vars.name}/.dotfiles";
           username = vars.name;
           name = vars.name;
@@ -89,7 +89,7 @@
           bar = "waybar";
           dm = "tuigreet";
           theme = "catppuccin-mocha";
-          wallpaper = "";
+          wallpaper = "/tree.jpg";
           loc = vars.loc;
           editor = "nvim";
         };
@@ -103,7 +103,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users."${vars.name}".imports = [
-                ./profiles/desktop/home.nix
+                ./profiles/mac/home.nix
               ];
               home-manager.extraSpecialArgs = {
                 inherit inputs;
@@ -128,7 +128,7 @@
           bar = "waybar";
           dm = "tuigreet";
           theme = "catppuccin-mocha";
-          wallpaper = "";
+          wallpaper = "/tree.jpg";
           loc = vars.loc;
           editor = "nvim";
         };

@@ -6,8 +6,10 @@
 }: {
   imports = [
     ./scripts/power-menu.nix
+		./scripts/workspaces.nix
     ./wayland.nix
     ../app/desktop/${settings.bar}
+    ../app/desktop/kanshi
   ];
 
   home.packages = with pkgs; [
@@ -17,7 +19,20 @@
     hyprshot
   ];
 
-  services.copyq.enable = true;
+  # services.copyq.enable = true;
+
+  programs.hyprlock = {
+    enable = true;
+    # settings = {
+    #   background = [
+    #     {
+    #       path = "screenshot";
+    #       blur_passes = 3;
+    #       blur_size = 8;
+    #     }
+    #   ];
+    # };
+  };
 
   # Config
   wayland.windowManager.hyprland = {
@@ -55,15 +70,15 @@
         ]
         else if (settings.profile == "laptop")
         then [
-          "1,monitor:eDP-1, defualt:true"
-          "2,monitor:eDP-1"
-          "3,monitor:eDP-1"
-          "4,monitor:eDP-1"
+          "1,monitor:eDP, defualt:true"
+          "2,monitor:eDP"
+          "3,monitor:eDP"
+          "4,monitor:eDP"
           "5,monitor:eDP-1"
           "6,monitor:eDP-1"
-          "7,monitor:eDP-1"
+          "7,monitor:eDP"
           "8,monitor:eDP-1"
-          "9,monitor:eDP-1"
+          "9,monitor:eDP"
           "10,monitor:eDP-1"
         ]
         else [];
@@ -159,7 +174,7 @@
       bind = [
         "SUPER,RETURN,exec,kitty"
         "SUPER,Q,killactive"
-        "SUPER,L,exec,${pkgs.swaylock-fancy}"
+        "SUPERSHIFT,L,exec,hyprlock"
         "SUPERSHIFT,space,exec,hyprctl --batch \"dispatch togglefloating active; dispatch resizeactive 100 100\""
         "SUPER,D,exec,fuzzel"
         "SUPER,P,pseudo"

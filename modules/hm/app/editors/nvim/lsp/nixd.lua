@@ -15,18 +15,14 @@ return {
 	settings = {
 		nixd = {
 			nixpkgs = {
-				expr = "import <nixpkgs> { }",
+				expr = "import (builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs { }",
 			},
 			formatting = {
 				command = { "alejandra" }, -- or nixfmt or nixpkgs-fmt
 			},
 			options = {
 				nixos = {
-					expr = string.format(
-						"(builtins.getFlake [%s]).nixosConfigurations.[%s].options",
-						vim.g.dotDir,
-						vim.g.profileName
-					),
+				expr = "(builtins.getFlake (builtins.toString ./.dotfiles)).nixosConfigurations.laptop.options",
 				},
 			},
 		},

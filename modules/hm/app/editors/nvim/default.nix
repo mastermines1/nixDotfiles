@@ -20,6 +20,11 @@
     gdb
     clang-tools
 		typescript-language-server
+		python3Packages.python-lsp-server
+		ruff
+		tinymist
+		typst
+		mypy
   ];
 
   programs.neovim = {
@@ -29,10 +34,10 @@
     defaultEditor = true;
   };
 
-  home.file.".config/nvim" = {
-    source = ./.;
-    recursive = true;
-  };
+  # home.file.".config/nvim" = {
+  #   source = ./.;
+  #   recursive = true;
+  # };
 
   # home.file.".config/nvim/lua/settings.lua".text = ''
   #   vim.g.dotDir = "${settings.dotDir}"

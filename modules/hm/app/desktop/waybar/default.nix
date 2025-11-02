@@ -34,16 +34,16 @@
       tooltip-format-disconnected = "Disconnected";
     };
 
-		battery = {
-			bat = "BAT1";
-			interval = 60;
-			states = {
-				warning = 30;
-				critial = 10;
-			};
-			format = "{capacity}%";
-			format-icons = ["" "" "" "" ""];
-		};
+    battery = {
+      bat = "BAT1";
+      interval = 60;
+      states = {
+        warning = 30;
+        critial = 10;
+      };
+      format = "{capacity}%";
+      format-icons = ["" "" "" "" ""];
+    };
 
     "custom/music" = {
       format = "{icon}{}";
@@ -53,20 +53,20 @@
       };
       escape = true;
       tooltip = true;
-      exec = "cavay -b 16 -p mpd";
+      exec = "cavay -b 16 ";
       return-type = "json";
-      on-click = "playerctl -p mpd play-pause";
-      on-scroll-up = "playerctl -p mpd next";
-      on-scroll-down = "playerctl -p mpd previous";
+      on-click = "playerctl play-pause";
+      on-scroll-up = "playerctl next";
+      on-scroll-down = "playerctl previous";
       on-click-right = ''
 
-#!/usr/bin/env bash
-if [ $(hyprctl clients -j | jq 'map(select(.title == "inori")) | length > 0') = "true" ]; then
-	pkill inori
-else
-	hyprctl dispatch exec "[workspace 6 silent ] alacritty -T inori -e inori"
-fi
-			'';
+        #!/usr/bin/env bash
+        if [ $(hyprctl clients -j | jq 'map(select(.title == "inori")) | length > 0') = "true" ]; then
+        	pkill inori
+        else
+        	hyprctl dispatch exec "[workspace 6 silent ] alacritty -T inori -e inori"
+        fi
+      '';
     };
 
     "hyprland/workspaces" = {
@@ -88,46 +88,51 @@ in {
     ./scripts/cavay.nix
   ];
 
-	home.packages = with pkgs; [
-		alsa-utils
-	];
+  home.packages = with pkgs; [
+    pavucontrol
+    alsa-utils
+  ];
 
   programs.waybar = {
     enable = true;
     settings =
-			if (settings.profile == "desktop") then {
-      leftBar = {
-        height = 15;
-        layer = "top";
-        position = "top";
-        output = "HDMI-A-1";
-        modules-left = ["tray"];
-        modules-center = ["custom/music"];
-        modules-right = ["wireplumber" "clock#time"];
-        inherit (moduleConfig) wireplumber "clock#time" "custom/music";
-      };
+      if (settings.profile == "desktop")
+      then {
+        leftBar = {
+          height = 15;
+          layer = "top";
+          position = "top";
+          output = "HDMI-A-1";
+          modules-left = ["tray"];
+          modules-center = ["custom/music"];
+          modules-right = ["wireplumber" "clock#time"];
+          inherit (moduleConfig) wireplumber "clock#time" "custom/music";
+        };
 
-      secondaryBar = {
-        layer = "top";
-        position = "top";
-        output = "HDMI-A-2";
-        modules-left = [];
-        modules-center = ["clock#time"];
-        modules-right = ["clock#date"];
-        inherit (moduleConfig) "clock#time" "clock#date";
-      };
-    }else if (settings.profile == "laptop") then {
-      mainBar = {
-        height = 15;
-        layer = "top";
-        position = "top";
-        output = "eDP-1";
-        modules-left = ["tray"];
-        modules-center = ["custom/music"];
-        modules-right = ["network" "battery" "wireplumber" "clock#time"];
-        inherit (moduleConfig) network battery wireplumber "clock#time" "custom/music";
-      };
-	}else {};
+        secondaryBar = {
+          layer = "top";
+          position = "top";
+          output = "HDMI-A-2";
+          modules-left = [];
+          modules-center = ["clock#time"];
+          modules-right = ["clock#date"];
+          inherit (moduleConfig) "clock#time" "clock#date";
+        };
+      }
+      else if (settings.profile == "laptop")
+      then {
+        mainBar = {
+          height = 15;
+          layer = "top";
+          position = "top";
+          output = ["eDP-1" "DP-1"];
+          modules-left = ["tray"];
+          modules-center = ["custom/music"];
+          modules-right = ["battery" "wireplumber" "clock#time"];
+          inherit (moduleConfig) network battery wireplumber "clock#time" "custom/music";
+        };
+      }
+      else {};
     style =
       ''
         * {

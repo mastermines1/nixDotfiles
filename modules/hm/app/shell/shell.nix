@@ -9,8 +9,6 @@
     cat = "bat";
     htop = "btop";
     fd = "fd -Lu";
-    gitfetch = "onefetch";
-    neofetch = "disfetch";
     ls = "eza";
     cd = "z";
     df = "df -h";
@@ -33,7 +31,7 @@ in {
     lazygit
   ];
 
-  imports = [ ./tmux.nix];
+  imports = [./tmux.nix];
 
   programs = {
     zsh = {
@@ -82,25 +80,31 @@ in {
       shellAliases = myAliases;
     };
 
-		fish = {
-			enable = true;
-			shellAliases = myAliases;
-		};
-
-    starship = {
+    fish = {
       enable = true;
-      enableTransience = true;
-      settings = {
-        add_newline = false;
-      };
+      interactiveShellInit = ''
+        set fish_greeting # Disable greeting
+      '';
+      shellAliases = myAliases;
+
+
+			plugins = [
+			];
     };
+
+    # starship = {
+    #   enable = true;
+    #   enableTransience = true;
+    #   settings = {
+    #     add_newline = false;
+    #   };
+    # };
 
     zoxide = {
       enable = true;
       enableBashIntegration = true;
-			enableFishIntegration = true;
+      enableFishIntegration = true;
       enableZshIntegration = true;
     };
-
-};
+  };
 }

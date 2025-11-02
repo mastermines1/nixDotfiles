@@ -1,13 +1,14 @@
 {
   pkgs,
+  settings,
   ...
 }: let
   theme = ../../../style/theme/cool.yaml;
-  wallpaper = settings.wallpaper;
+  wallpaper = ../../../style/image + settings.wallpaper;
 in {
   stylix = {
     enable = true;
-		image = wallpaper;
+    image = wallpaper;
     base16Scheme = theme;
     polarity = "dark";
     opacity = {

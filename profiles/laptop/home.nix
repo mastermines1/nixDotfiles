@@ -23,8 +23,6 @@
       /wm/${settings.wm}.nix
       /style
 
-      /lang/csharp
-      /lang/python
     ]);
 
   services = {
@@ -36,12 +34,9 @@
     gnome-disk-utility
     file-roller
 
-    # libreoffice-fresh
-
-		 gnome-network-displays
-
     yt-dlp
-    spotify
+    spotify-qt
+		librespot
 
     #WINE
     wine
@@ -65,6 +60,10 @@
     kid3
 
     gimp
-dooit
+    dooit
+		zathura
+
+		obsidian
+		jupyter
   ];
 }
